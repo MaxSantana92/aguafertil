@@ -11,8 +11,7 @@
 	transition-delay: var(--reveal-delay, 0ms);
 	will-change: opacity, transform, filter;
 	content-visibility: auto;
-	contain-intrinsic-size: 1px 900px;
-	min-height: 100vh;
+	min-height: var(--min-height, auto);
 	display: flex;
 	align-items: center;
 	justify-content: center;

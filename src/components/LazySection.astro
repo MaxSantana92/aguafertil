@@ -4,11 +4,13 @@
 // - class: clases adicionales para la sección
 // - delay: delay en ms para el reveal (usa --reveal-delay)
 // - eager: si es true, aparece visible desde el inicio
+// - minHeight: altura mínima estimada para evitar Layout Shift (ej: "800px", "100vh")
 const {
 	as: Tag = 'section',
 	class: className = '',
-	delay =100,
-	eager = false
+	delay = 100,
+	eager = false,
+	minHeight = 'auto'
 } = Astro.props;
 
 // Clase base + clases extra + estado visible inicial
@@ -16,8 +18,12 @@ const classes = ['lazy-section', className, eager ? 'is-visible' : '']
 	.filter(Boolean)
 	.join(' ');
 
-// Se expone como CSS variable para que el estilo controle el timing
-const style = `--reveal-delay: ${Number(delay) || 0}ms;`;
+// Se exponen como CSS variables para que el estilo controle el timing y el tamaño intrínseco
+const style = {
+	'--reveal-delay': `${Number(delay) || 0}ms`,
+	'--min-height': minHeight,
+	'contain-intrinsic-size': `auto ${minHeight === 'auto' ? '800px' : minHeight}`
+};
 ---
 
 <!--
