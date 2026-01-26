@@ -1,0 +1,220 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const products = [
+  {
+    name: 'Materia Orgánica',
+    nameEn: 'Organic Matter',
+    description: 'Mejora la estructura del suelo y aumenta la retención de agua y nutrientes',
+    descriptionEn: 'Improves soil structure and increases water and nutrient retention',
+    icon: '🌱',
+    color: 'from-green-500 to-emerald-600'
+  },
+  {
+    name: 'Biofertilizantes',
+    nameEn: 'Biofertilizers',
+    description: 'Microorganismos beneficiosos que mejoran la disponibilidad de nutrientes',
+    descriptionEn: 'Beneficial microorganisms that improve nutrient availability',
+    icon: '🧬',
+    color: 'from-blue-500 to-cyan-600'
+  },
+  {
+    name: 'Bioestimulantes Foliares',
+    nameEn: 'Foliar Biostimulants',
+    description: 'Potencian el crecimiento y la resistencia de las plantas',
+    descriptionEn: 'Enhance plant growth and resistance',
+    icon: '🍃',
+    color: 'from-lime-500 to-green-600'
+  },
+  {
+    name: 'Nanopartículas',
+    nameEn: 'Nanoparticles',
+    description: 'Tecnología de vanguardia para máxima absorción y eficiencia',
+    descriptionEn: 'Cutting-edge technology for maximum absorption and efficiency',
+    icon: '⚗️',
+    color: 'from-purple-500 to-indigo-600'
+  },
+  {
+    name: 'Microorganismos',
+    nameEn: 'Microorganisms',
+    description: 'Mejoran la salud del suelo y las plantas de manera natural',
+    descriptionEn: 'Improve soil and plant health naturally',
+    icon: '🦠',
+    color: 'from-teal-500 to-emerald-600'
+  },
+  {
+    name: 'Correctores de Suelo',
+    nameEn: 'Soil Correctors',
+    description: 'Optimizan el pH y la estructura del suelo para mejor producción',
+    descriptionEn: 'Optimize pH and soil structure for better production',
+    icon: '🌾',
+    color: 'from-amber-500 to-orange-600'
+  }
+];
+
+const brands = [
+  'Simbios',
+  'BioTech Agro',
+  'NanoFert',
+  'GreenPlus',
+  'AgroSolutions',
+  'EcoGrow'
+];
+---
+
+<section id="tecnologias" class="bg-gradient-to-br from-gray-50 to-white w-full">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('products.title')}</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        {t('products.subtitle')}
+      </p>
+    </div>
+
+    <div class="mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {products.map((product, index) => (
+          <div
+            class="product-card bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 cursor-pointer transform hover:-translate-y-2"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class={`w-16 h-16 bg-gradient-to-br ${product.color} rounded-2xl flex items-center justify-center text-3xl mb-4 transform transition-transform group-hover:scale-110`}>
+              {product.icon}
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-2">
+              {lang === 'es' ? product.name : product.nameEn}
+            </h4>
+            <p class="text-gray-600 leading-relaxed">
+              {lang === 'es' ? product.description : product.descriptionEn}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 bg-white rounded-3xl p-8 md:p-12 shadow-lg">
+      <h3 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">
+        {lang === 'es' ? 'Marcas que Distribuimos' : 'Brands We Distribute'}
+      </h3>
+      <div class="brand-marquee" aria-label={lang === 'es' ? 'Marcas en movimiento continuo' : 'Brands in continuous motion'}>
+        <div class="brand-track">
+          {brands.map((brand) => (
+            <div class="brand-logo brand-item flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gradient-to-br from-emerald-100 to-lime-100 rounded-2xl flex items-center justify-center mb-2 mx-auto">
+                  <span class="text-2xl font-bold text-emerald-700">{brand.substring(0, 2)}</span>
+                </div>
+                <p class="text-sm font-semibold text-gray-700">{brand}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="brand-track" aria-hidden="true">
+          {brands.map((brand) => (
+            <div class="brand-logo brand-item flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gradient-to-br from-emerald-100 to-lime-100 rounded-2xl flex items-center justify-center mb-2 mx-auto">
+                  <span class="text-2xl font-bold text-emerald-700">{brand.substring(0, 2)}</span>
+                </div>
+                <p class="text-sm font-semibold text-gray-700">{brand}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl p-8 md:p-12 text-white text-center">
+      <h3 class="text-3xl md:text-4xl font-bold mb-4">
+        {lang === 'es' ? '¡Juntos hacemos crecer la tierra con innovación!' : 'Together we make the earth grow with innovation!'}
+      </h3>
+      <p class="text-xl mb-8 text-emerald-100">
+        {lang === 'es' ? 'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel' : 'Discover all the brands we distribute and take your field to the next level'}
+      </p>
+      <a href={`/${lang}#contacto`} class="inline-flex items-center bg-white text-emerald-700 px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all">
+        {lang === 'es' ? 'Solicitar Información' : 'Request Information'}
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-card {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+  }
+
+  .brand-logo {
+    flex-shrink: 0;
+  }
+
+  .brand-item {
+    min-width: 160px;
+  }
+
+  .brand-marquee {
+    --brand-speed: 28s;
+    display: flex;
+    gap: 2.5rem;
+    overflow: hidden;
+    position: relative;
+    padding: 0.5rem 0;
+    mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+  }
+
+  .brand-track {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-shrink: 0;
+    min-width: 100%;
+    animation: brand-scroll var(--brand-speed) linear infinite;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes brand-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand-track {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card').forEach((card) => {
+    observer.observe(card);
+  });
+</script>

@@ -1,0 +1,77 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-md border-b border-white/20 shadow-lg transition-all duration-300" id="navbar">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <a href={`/${lang}`} class="flex items-center space-x-2">
+        <div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
+          </svg>
+        </div>
+        <div>
+          <span class="text-2xl font-bold text-emerald-700">aguafertil</span>
+          <p class="text-xs text-gray-600 uppercase tracking-wide">Nutrición Vegetal</p>
+        </div>
+      </a>
+
+      <button class="lg:hidden text-gray-700" id="mobile-menu-button">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href={`/${lang}#inicio`} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
+        <a href={`/${lang}#quienes-somos`} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
+        <a href={`/${lang}#tecnologias`} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
+        <a href={`/${lang}#beneficios`} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
+        <a href={`/${lang}#testimonios`} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
+        <a href={`/${lang}#contacto`} class="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-6 py-2.5 rounded-full hover:shadow-lg transition-all font-medium">{t('nav.contacto')}</a>
+
+        <div class="flex items-center space-x-2 border-l pl-6">
+          <a href="/es" class={`px-2 py-1 rounded ${lang === 'es' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600 hover:text-emerald-600'}`}>ES</a>
+          <a href="/en" class={`px-2 py-1 rounded ${lang === 'en' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600 hover:text-emerald-600'}`}>EN</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden lg:hidden mt-4 pb-4 space-y-3" id="mobile-menu">
+      <a href={`/${lang}#inicio`} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
+      <a href={`/${lang}#quienes-somos`} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
+      <a href={`/${lang}#tecnologias`} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
+      <a href={`/${lang}#beneficios`} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
+      <a href={`/${lang}#testimonios`} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
+      <a href={`/${lang}#contacto`} class="block bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-6 py-2.5 rounded-full hover:shadow-lg transition-all font-medium text-center">{t('nav.contacto')}</a>
+      <div class="flex items-center space-x-2 pt-2">
+        <a href="/es" class={`px-3 py-1 rounded ${lang === 'es' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>ES</a>
+        <a href="/en" class={`px-3 py-1 rounded ${lang === 'en' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>EN</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar?.classList.add('shadow-xl');
+      navbar?.classList.remove('shadow-lg');
+    } else {
+      navbar?.classList.add('shadow-lg');
+      navbar?.classList.remove('shadow-xl');
+    }
+  });
+</script>

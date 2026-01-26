@@ -1,0 +1,121 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="beneficios" class="bg-white w-full">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('benefits.title')}</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-lime-500 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="benefit-card text-center group">
+        <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">{t('benefits.1.title')}</h3>
+        <p class="text-gray-600 leading-relaxed">{t('benefits.1.description')}</p>
+      </div>
+
+      <div class="benefit-card text-center group">
+        <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">{t('benefits.2.title')}</h3>
+        <p class="text-gray-600 leading-relaxed">{t('benefits.2.description')}</p>
+      </div>
+
+      <div class="benefit-card text-center group">
+        <div class="w-20 h-20 bg-gradient-to-br from-lime-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">{t('benefits.3.title')}</h3>
+        <p class="text-gray-600 leading-relaxed">{t('benefits.3.description')}</p>
+      </div>
+
+      <div class="benefit-card text-center group">
+        <div class="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">{t('benefits.4.title')}</h3>
+        <p class="text-gray-600 leading-relaxed">{t('benefits.4.description')}</p>
+      </div>
+    </div>
+
+    <div class="mt-16 bg-gradient-to-br from-emerald-50 to-lime-50 rounded-3xl p-8 md:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="counter-item">
+          <div class="text-5xl font-bold text-emerald-600 mb-2" data-target="150">0</div>
+          <p class="text-gray-700 font-medium">{lang === 'es' ? 'Productores Asesorados' : 'Advised Producers'}</p>
+        </div>
+        <div class="counter-item">
+          <div class="text-5xl font-bold text-emerald-600 mb-2" data-target="15">0</div>
+          <p class="text-gray-700 font-medium">{lang === 'es' ? 'Años de Experiencia' : 'Years of Experience'}</p>
+        </div>
+        <div class="counter-item">
+          <div class="text-5xl font-bold text-emerald-600 mb-2" data-target="25">0</div>
+          <p class="text-gray-700 font-medium">{lang === 'es' ? 'Tecnologías Disponibles' : 'Available Technologies'}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefit-card {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = entry.target as HTMLElement;
+        const targetValue = parseInt(target.getAttribute('data-target') || '0');
+        let currentValue = 0;
+        const increment = targetValue / 50;
+
+        const updateCounter = () => {
+          currentValue += increment;
+          if (currentValue < targetValue) {
+            target.textContent = Math.ceil(currentValue).toString();
+            requestAnimationFrame(updateCounter);
+          } else {
+            target.textContent = targetValue.toString();
+          }
+        };
+
+        updateCounter();
+        observer.unobserve(target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-target]').forEach((counter) => {
+    observer.observe(counter);
+  });
+</script>

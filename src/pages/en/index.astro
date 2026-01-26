@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ProblemSolution from '../../components/ProblemSolution.astro';
+import Benefits from '../../components/Benefits.astro';
+import SocialMedia from '../../components/SocialMedia.astro';
+import FAQ from '../../components/FAQ.astro';
+import Contact from '../../components/Contact.astro';
+import Location from '../../components/Location.astro';
+import LazySection from '../../components/LazySection.astro';
+import About from '../../components/About.astro';
+---
+
+<Layout
+	title="Agua Fertil - Sustainable Technology for Agriculture | San Juan and La Rioja"
+	description="We distribute Simbios technology in San Juan and La Rioja. We offer sustainable technologies for agriculture: biofertilizers, nanoparticles, biostimulants and more. Professional advice included."
+	lang="en"
+>
+	<LazySection eager>
+		<Hero />
+	</LazySection>
+	<LazySection>
+		<About />
+	</LazySection>
+	<LazySection>
+		<ProblemSolution />
+	</LazySection>
+	<LazySection>
+		<Benefits />
+	</LazySection>
+	<LazySection>
+		<SocialMedia />
+	</LazySection>
+	<LazySection>
+		<FAQ />
+	</LazySection>
+	<LazySection>
+		<Contact />
+	</LazySection>
+	<LazySection>
+		<Location />
+	</LazySection>
+</Layout>

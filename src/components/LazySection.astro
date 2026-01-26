@@ -1,0 +1,29 @@
+---
+// Props del wrapper de lazy loading
+// - as: etiqueta HTML a renderizar (section, div, etc.)
+// - class: clases adicionales para la sección
+// - delay: delay en ms para el reveal (usa --reveal-delay)
+// - eager: si es true, aparece visible desde el inicio
+const {
+	as: Tag = 'section',
+	class: className = '',
+	delay =100,
+	eager = false
+} = Astro.props;
+
+// Clase base + clases extra + estado visible inicial
+const classes = ['lazy-section', className, eager ? 'is-visible' : '']
+	.filter(Boolean)
+	.join(' ');
+
+// Se expone como CSS variable para que el estilo controle el timing
+const style = `--reveal-delay: ${Number(delay) || 0}ms;`;
+---
+
+<!--
+	Wrapper genérico para aplicar lazy loading por secciones.
+	Usa IntersectionObserver definido en Layout.astro y las reglas en global.css.
+-->
+<Tag class={classes} style={style} data-lazy={eager ? 'eager' : 'lazy'}>
+	<slot />
+</Tag>

@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ProblemSolution from '../../components/ProblemSolution.astro';
+import Benefits from '../../components/Benefits.astro';
+import SocialMedia from '../../components/SocialMedia.astro';
+import FAQ from '../../components/FAQ.astro';
+import Contact from '../../components/Contact.astro';
+import Location from '../../components/Location.astro';
+import LazySection from '../../components/LazySection.astro';
+import About from '../../components/About.astro';
+---
+
+<Layout
+	title="Agua Fertil - Nutrición Sustentable para el Agro | San Juan y La Rioja"
+	description="Distribuimos tecnología Simbios en San Juan y La Rioja. Ofrecemos tecnologías sustentables para el agro: biofertilizantes, nanopartículas, bioestimulantes y más. Asesoramiento profesional incluido."
+	lang="es"
+>
+	<LazySection eager>
+		<Hero />
+	</LazySection>
+	<LazySection>
+		<About />
+	</LazySection>
+	<LazySection>
+		<ProblemSolution />
+	</LazySection>
+	<LazySection>
+		<Benefits />
+	</LazySection>
+	<LazySection>
+		<SocialMedia />
+	</LazySection>
+	<LazySection>
+		<FAQ />
+	</LazySection>
+	<LazySection>
+		<Contact />
+	</LazySection>
+	<LazySection>
+		<Location />
+	</LazySection>
+</Layout>
