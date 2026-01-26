@@ -18,6 +18,10 @@ export const ui = {
     'hero.subtitle': 'Acompañamos tu producción con asesoramiento profesional y soluciones innovadoras. Conocé más de nosotros.',
     'hero.cta': 'Solicitar Asesoramiento',
     'hero.cta.secondary': 'Ver Tecnologías',
+    'hero.slide1.alt': 'Campo de cultivo agrícola bajo un cielo despejado',
+    'hero.slide2.alt': 'Primer plano de un sistema de riego por goteo en un campo',
+    'hero.slide3.alt': 'Vista aérea de un campo agrícola moderno y tecnificado',
+    'hero.slide4.alt': 'Brote verde creciendo en suelo fértil, simbolizando sostenibilidad',
 
     'about.title': 'El Futuro del Agro es Bio-Inteligente',
     'about.subtitle': '¿Buscas optimizar tu producción agrícola con tecnología sustentable?',
@@ -71,6 +75,10 @@ export const ui = {
     'hero.subtitle': 'We support your production with professional advice and innovative solutions. Learn more about us.',
     'hero.cta': 'Request Consultation',
     'hero.cta.secondary': 'View Technologies',
+    'hero.slide1.alt': 'Agricultural crop field under a clear sky',
+    'hero.slide2.alt': 'Close-up of a drip irrigation system in a field',
+    'hero.slide3.alt': 'Aerial view of a modern and technified agricultural field',
+    'hero.slide4.alt': 'Green sprout growing in fertile soil, symbolizing sustainability',
 
     'about.title': 'We Drive Sustainable Growth',
     'about.subtitle': 'Looking to optimize your agricultural production with sustainable technology?',
