@@ -49,6 +49,9 @@
   // Ciclar entre 3 temas: blue -> green -> balanced -> blue
   themeSwitchers.forEach((themeSwitcher) => {
     themeSwitcher.addEventListener('click', () => {
+      if ('vibrate' in navigator) {
+        navigator.vibrate(20);
+      }
       const currentTheme = html.getAttribute('data-theme');
       let newTheme: string;
       
