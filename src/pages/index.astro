@@ -1,3 +1,43 @@
 ---
-return Astro.redirect(`${import.meta.env.BASE_URL}es/`);
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import Benefits from '../components/Benefits.astro';
+import SocialMedia from '../components/SocialMedia.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import Location from '../components/Location.astro';
+import LazySection from '../components/LazySection.astro';
+import About from '../components/About.astro';
 ---
+
+<Layout
+	title="Agua Fertil - Nutrición Sustentable para el Agro | San Juan y La Rioja"
+	description="Distribuimos tecnología Simbios en San Juan y La Rioja. Ofrecemos tecnologías sustentables para el agro: biofertilizantes, nanopartículas, bioestimulantes y más. Asesoramiento profesional incluido."
+	lang="es"
+>
+	<LazySection eager minHeight="100vh">
+		<Hero />
+	</LazySection>
+	<LazySection minHeight="600px">
+		<About />
+	</LazySection>
+	<LazySection minHeight="800px">
+		<ProblemSolution />
+	</LazySection>
+	<LazySection minHeight="900px">
+		<Benefits />
+	</LazySection>
+	<LazySection minHeight="500px">
+		<SocialMedia />
+	</LazySection>
+	<LazySection minHeight="600px">
+		<FAQ />
+	</LazySection>
+	<LazySection minHeight="700px">
+		<Contact />
+	</LazySection>
+	<LazySection minHeight="400px">
+		<Location />
+	</LazySection>
+</Layout>
