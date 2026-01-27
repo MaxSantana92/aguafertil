@@ -1,5 +1,9 @@
 ---
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import Button from './Button.astro';
+import ThemeSwitcher from './ThemeSwitcher.astro';
+import { Image } from 'astro:assets';
+import isoLogo from '../assets/iso_logo.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -10,14 +14,17 @@ const translatePath = useTranslatedPath(lang);
   <div class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <a href={translatePath('/')} class="flex items-center space-x-2">
-        <div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
-          </svg>
-        </div>
+        <Image 
+          src={isoLogo} 
+          alt="Agua Fertil Logo" 
+          width={48} 
+          height={48} 
+          class="w-12 h-12 object-contain"
+          loading="eager"
+        />
         <div>
-          <span class="text-2xl font-bold text-emerald-700">aguafertil</span>
-          <p class="text-xs text-gray-600 uppercase tracking-wide">Nutrición Vegetal</p>
+          <span class="nav-brand-title text-2xl font-bold text-[#2B5882]"><span class="nav-brand-agua">agua</span><span class="nav-brand-highlight text-[#8DC63F]">fertil</span></span>
+          <p class="nav-brand-subtitle text-[10px] text-[#8DC63F] font-bold uppercase tracking-widest leading-none">Nutrición Vegetal Biológica</p>
         </div>
       </a>
 
@@ -28,12 +35,20 @@ const translatePath = useTranslatedPath(lang);
       </button>
 
       <div class="hidden lg:flex items-center space-x-8">
-        <a href={translatePath('#inicio')} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
-        <a href={translatePath('#quienes-somos')} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
-        <a href={translatePath('#tecnologias')} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
-        <a href={translatePath('#beneficios')} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
-        <a href={translatePath('#testimonios')} class="text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
-        <a href={translatePath('#contacto')} class="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-6 py-2.5 rounded-full hover:shadow-lg transition-all font-medium">{t('nav.contacto')}</a>
+        <a href={translatePath('#inicio')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
+        <a href={translatePath('#quienes-somos')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
+        <a href={translatePath('#tecnologias')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
+        <a href={translatePath('#beneficios')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
+        <a href={translatePath('#redes-sociales')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
+        
+        <div class="flex items-center gap-3">
+          <ThemeSwitcher />
+          <Button 
+            href={translatePath('#contacto')} 
+            text={t('nav.contacto')} 
+            className="px-6 py-2.5"
+          />
+        </div>
 
         <div class="flex items-center space-x-2 border-l pl-6">
           <a href={translatePath('/', 'es')} class={`px-2 py-1 rounded ${lang === 'es' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600 hover:text-emerald-600'}`}>ES</a>
@@ -43,12 +58,21 @@ const translatePath = useTranslatedPath(lang);
     </div>
 
     <div class="hidden lg:hidden mt-4 pb-4 space-y-3" id="mobile-menu">
-      <a href={translatePath('#inicio')} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
-      <a href={translatePath('#quienes-somos')} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
-      <a href={translatePath('#tecnologias')} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
-      <a href={translatePath('#beneficios')} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
-      <a href={translatePath('#testimonios')} class="block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
-      <a href={translatePath('#contacto')} class="block bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-6 py-2.5 rounded-full hover:shadow-lg transition-all font-medium text-center">{t('nav.contacto')}</a>
+      <a href={translatePath('#inicio')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
+      <a href={translatePath('#quienes-somos')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
+      <a href={translatePath('#tecnologias')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
+      <a href={translatePath('#beneficios')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
+      <a href={translatePath('#redes-sociales')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
+      
+      <div class="flex items-center gap-3 pt-2">
+        <ThemeSwitcher />
+        <Button 
+          href={translatePath('#contacto')} 
+          text={t('nav.contacto')} 
+          className="flex-1"
+        />
+      </div>
+      
       <div class="flex items-center space-x-2 pt-2">
         <a href={translatePath('/', 'es')} class={`px-3 py-1 rounded ${lang === 'es' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>ES</a>
         <a href={translatePath('/', 'en')} class={`px-3 py-1 rounded ${lang === 'en' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>EN</a>
@@ -65,8 +89,21 @@ const translatePath = useTranslatedPath(lang);
     mobileMenu?.classList.toggle('hidden');
   });
 
+  const navbar = document.getElementById('navbar');
+  const heroSection = document.getElementById('inicio');
+
+  if (heroSection && navbar) {
+    const heroObserver = new IntersectionObserver(
+      (entries) => {
+        const isHeroVisible = entries[0]?.isIntersecting;
+        navbar.classList.toggle('nav-on-hero', Boolean(isHeroVisible));
+      },
+      { threshold: 0.6 }
+    );
+    heroObserver.observe(heroSection);
+  }
+
   window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
       navbar?.classList.add('shadow-xl');
       navbar?.classList.remove('shadow-lg');
@@ -76,3 +113,38 @@ const translatePath = useTranslatedPath(lang);
     }
   });
 </script>
+
+<style>
+  #navbar.nav-on-hero {
+    background: rgba(15, 23, 42, 0.55);
+    border-color: transparent;
+  }
+
+  #navbar.nav-on-hero .nav-link {
+    color: #ffffff;
+  }
+
+  #navbar.nav-on-hero .nav-link:hover {
+    color: #d1fae5;
+  }
+
+  #navbar.nav-on-hero .nav-brand-title {
+    color: var(--theme-primary);
+  }
+
+  #navbar.nav-on-hero .nav-brand-agua {
+    color: #ffffff;
+  }
+
+  #navbar.nav-on-hero .nav-brand-highlight {
+    color: var(--theme-primary);
+  }
+
+  #navbar.nav-on-hero .nav-brand-subtitle {
+    color: var(--theme-primary-light, #5dc4e0);
+  }
+
+  #navbar.nav-on-hero #mobile-menu-button {
+    color: #ffffff;
+  }
+</style>

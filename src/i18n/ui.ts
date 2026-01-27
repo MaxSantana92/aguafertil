@@ -40,11 +40,11 @@ export const ui = {
     'benefits.4.title': 'Soporte Completo',
     'benefits.4.description': 'Préstamo de maquinaria y seguimiento continuo',
 
-    'social.title': 'Síguenos en Redes Sociales',
-    'social.subtitle': 'Mantente actualizado con las últimas novedades',
+    'social.title': 'Conocé los testimonios en nuestras redes sociales',
+    'social.subtitle': 'Síguenos en Instagram, YouTube y Spotify',
 
     'faq.title': 'Preguntas Frecuentes',
-    'faq.subtitle': 'Resolvemos tus dudas',
+    'faq.subtitle': 'Respondemos tus consultas',
 
     'contact.title': 'Contactanos',
     'contact.subtitle': 'Estamos aquí para ayudarte a llevar tu campo al siguiente nivel',
@@ -80,9 +80,9 @@ export const ui = {
     'hero.slide3.alt': 'Aerial view of a modern and technified agricultural field',
     'hero.slide4.alt': 'Green sprout growing in fertile soil, symbolizing sustainability',
 
-    'about.title': 'We Drive Sustainable Growth',
+    'about.title': 'The Future of Agriculture is Bio-Intelligent',
     'about.subtitle': 'Looking to optimize your agricultural production with sustainable technology?',
-    'about.description': 'At Agua Fertil, we understand the challenges of modern agriculture. That\'s why we offer solutions based on bio and nanoparticles that improve productivity while caring for the environment.',
+    'about.description': 'At Aguafértil, we merge innovation and nature. We specialize in cutting-edge agricultural inputs designed to improve productivity without compromising the environment. We accompany producers in the transition to regenerative agriculture, optimizing resources to achieve more profitable crops and healthier soils. Our goal is clear: ensure food security today, protecting tomorrow\'s ecosystem.',
 
     'products.title': 'Our Technologies',
     'products.subtitle': 'Discover all the brands we distribute',
@@ -97,8 +97,8 @@ export const ui = {
     'benefits.4.title': 'Complete Support',
     'benefits.4.description': 'Machinery loan and continuous monitoring',
 
-    'social.title': 'Follow Us on Social Media',
-    'social.subtitle': 'Stay updated with the latest news',
+    'social.title': 'See the testimonials on our social media',
+    'social.subtitle': 'Follow us on Instagram, YouTube and Spotify',
 
     'faq.title': 'Frequently Asked Questions',
     'faq.subtitle': 'We answer your questions',

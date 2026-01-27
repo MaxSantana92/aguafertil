@@ -1,0 +1,49 @@
+---
+interface Props {
+	href?: string;
+	text: string;
+	className?: string;
+	type?: 'button' | 'submit' | 'reset';
+}
+
+const { href, text, className = '', type = 'button' } = Astro.props;
+const Element = href ? 'a' : 'button';
+---
+
+<Element
+	href={href}
+	type={!href ? type : undefined}
+	class={`boton-agua-fertil ${className}`}
+>
+	{text}
+	<slot />
+</Element>
+
+<style>
+	.boton-agua-fertil {
+		background: var(--theme-gradient-action, linear-gradient(to bottom right, var(--theme-gradient-from), var(--theme-gradient-to)));
+		color: white;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		border-radius: 9999px;
+		padding: 10px 25px;
+		text-transform: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		border: none;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		text-align: center;
+	}
+
+	.boton-agua-fertil:hover {
+		transform: translateY(-2px) scale(1.05);
+		box-shadow: 0 10px 25px -5px var(--theme-shadow-action, var(--theme-shadow));
+	}
+
+	.boton-agua-fertil:active {
+		transform: translateY(0);
+	}
+</style>

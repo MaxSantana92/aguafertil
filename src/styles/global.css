@@ -1,5 +1,72 @@
 @import "tailwindcss";
 
+@theme {
+  --color-verde-agua: #8DC63F;
+  --color-azul-brillante: #40B6D9;
+  --color-azul-oscuro: #2B5882;
+  --color-fondo: #F9F9F9;
+  --color-texto-oscuro: #4D4D4D;
+}
+
+/* Tema por defecto (Azul Brillante) */
+:root {
+  --theme-primary: #40B6D9;
+  --theme-primary-dark: #2d8ba8;
+  --theme-primary-light: #5dc4e0;
+  --theme-accent: #8DC63F;
+  --theme-gradient-from: #40B6D9;
+  --theme-gradient-to: #2d8ba8;
+  --theme-shadow: rgba(64, 182, 217, 0.5);
+  
+  --color-fondo: #F9F9F9;
+  --color-texto-oscuro: #4D4D4D;
+  --font-main: 'Montserrat', sans-serif;
+}
+
+/* Tema Verde Agua */
+:root[data-theme="green"] {
+  --theme-primary: #8DC63F;
+  --theme-primary-dark: #7ab135;
+  --theme-primary-light: #9fd754;
+  --theme-accent: #40B6D9;
+  --theme-gradient-from: #8DC63F;
+  --theme-gradient-to: #7ab135;
+  --theme-shadow: rgba(141, 198, 63, 0.5);
+  --theme-gradient-institutional: linear-gradient(135deg, #8DC63F, #7ab135);
+}
+
+/* Tema Balanced (Mix Equilibrado) */
+:root[data-theme="balanced"] {
+  /* Colores primarios */
+  --theme-primary: #40B6D9;
+  --theme-primary-dark: #6bc08c;
+  --theme-primary-light: #8DC63F;
+  --theme-secondary: #8DC63F;
+  --theme-accent: #8DC63F;
+  
+  /* Degradado único para todos los elementos */
+  --theme-gradient-institutional: linear-gradient(135deg, #40B6D9 0%, #6bc08c 50%, #8DC63F 100%);
+  --theme-gradient-action: linear-gradient(135deg, #40B6D9 0%, #6bc08c 50%, #8DC63F 100%);
+  --theme-gradient-mixed: linear-gradient(135deg, #40B6D9 0%, #6bc08c 50%, #8DC63F 100%);
+  
+  /* Por compatibilidad con componentes existentes */
+  --theme-gradient-from: #40B6D9;
+  --theme-gradient-to: #8DC63F;
+  --theme-shadow: rgba(64, 182, 217, 0.5);
+  --theme-shadow-action: rgba(100, 200, 100, 0.5);
+}
+
+html {
+  /* Compensación para el header fijo al navegar con anclas */
+  scroll-padding-top: 100px;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto-oscuro);
+  font-family: var(--font-main);
+}
+
 .lazy-section {
 	opacity: 0;
 	transform: translateY(24px) scale(0.98);
@@ -31,4 +98,30 @@
 		filter: none;
 		transition: none;
 	}
+}
+
+/* Clases auxiliares para tema Balanced */
+.theme-institutional {
+  background: var(--theme-gradient-institutional, linear-gradient(135deg, #40B6D9, #2d8ba8));
+}
+
+.theme-action {
+  background: var(--theme-gradient-action, linear-gradient(135deg, #8DC63F, #7ab135));
+}
+
+.theme-mixed {
+  background: var(--theme-gradient-mixed, linear-gradient(135deg, #40B6D9, #6bc08c, #8DC63F));
+}
+
+.theme-action-shadow {
+  box-shadow: 0 10px 25px -5px var(--theme-shadow-action, rgba(141, 198, 63, 0.5));
+}
+
+/* Clase para elementos que deben ser solo azul en tema balanced */
+.theme-blue-only {
+  background: linear-gradient(135deg, #40B6D9, #2d8ba8);
+}
+
+:root[data-theme="balanced"] .theme-blue-only {
+  background: linear-gradient(135deg, #40B6D9, #2d8ba8);
 }

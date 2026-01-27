@@ -1,0 +1,71 @@
+---
+// Componente para cambiar entre temas
+---
+
+<button 
+  id="theme-switcher" 
+  class="theme-btn p-2 rounded-full transition-all hover:scale-110 border-2"
+  aria-label="Cambiar tema de color"
+  title="Cambiar tema"
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+  </svg>
+</button>
+
+<style>
+  .theme-btn {
+    background: linear-gradient(135deg, var(--theme-gradient-from), var(--theme-gradient-to));
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px var(--theme-shadow);
+  }
+  
+  .theme-btn:hover {
+    box-shadow: 0 4px 12px var(--theme-shadow);
+  }
+</style>
+
+<script>
+  const themeSwitcher = document.getElementById('theme-switcher');
+  const html = document.documentElement;
+  
+  // Cargar tema guardado o usar azul por defecto
+  const savedTheme = localStorage.getItem('aguafertil-theme') || 'blue';
+  
+  function setTheme(theme: string) {
+    if (theme === 'green') {
+      html.setAttribute('data-theme', 'green');
+    } else if (theme === 'balanced') {
+      html.setAttribute('data-theme', 'balanced');
+    } else {
+      html.removeAttribute('data-theme');
+    }
+    localStorage.setItem('aguafertil-theme', theme);
+  }
+  
+  // Aplicar tema inicial
+  setTheme(savedTheme);
+  
+  // Ciclar entre 3 temas: blue -> green -> balanced -> blue
+  themeSwitcher?.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    let newTheme: string;
+    
+    if (!currentTheme || currentTheme === 'blue') {
+      newTheme = 'green';
+    } else if (currentTheme === 'green') {
+      newTheme = 'balanced';
+    } else {
+      newTheme = 'blue';
+    }
+    
+    setTheme(newTheme);
+    
+    // Animación de cambio
+    themeSwitcher.style.transform = 'rotate(360deg)';
+    setTimeout(() => {
+      themeSwitcher.style.transform = '';
+    }, 300);
+  });
+</script>

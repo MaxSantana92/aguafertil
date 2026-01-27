@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import Button from './Button.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -53,7 +54,7 @@ const slidesData = [
       <div class="max-w-3xl">
         <div class="mb-6 animate-fade-in">
           <div class="inline-flex items-center bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white">
-            <svg class="w-5 h-5 mr-2 text-lime-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 mr-2 text-[#8DC63F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
             <span class="text-sm font-medium">Tecnología Simbios</span>
@@ -69,12 +70,15 @@ const slidesData = [
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 animate-slide-up" style="animation-delay: 0.4s;">
-          <a href={translatePath('#contacto')} class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all inline-flex items-center justify-center">
-            {t('hero.cta')}
+          <Button 
+            href={translatePath('#contacto')} 
+            text={t('hero.cta')} 
+            className="text-lg px-10 py-4"
+          >
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
-          </a>
+          </Button>
           <a href={translatePath('#tecnologias')} class="bg-white/10 backdrop-blur-md text-white border-2 border-white/50 px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center">
             {t('hero.cta.secondary')}
           </a>

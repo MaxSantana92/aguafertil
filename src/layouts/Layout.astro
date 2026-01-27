@@ -29,7 +29,7 @@ const {
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body class="antialiased">
 		<Navigation />
@@ -38,11 +38,11 @@ const {
 		</main>
 		<Footer />
 
-		<button
-			id="scroll-to-top"
-			class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 opacity-0 pointer-events-none z-40"
-			aria-label="Scroll to top"
-		>
+    <button
+      id="scroll-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 theme-blue-only text-white rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 opacity-0 pointer-events-none z-40"
+      aria-label="Scroll to top"
+    >
 			<svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
 			</svg>
@@ -52,7 +52,7 @@ const {
 
 <style>
 	html {
-		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
 		scroll-behavior: smooth;
 	}
 
@@ -60,6 +60,10 @@ const {
 		margin: 0;
 		padding: 0;
 		background: white;
+	}
+
+	.theme-gradient {
+		background: linear-gradient(to bottom right, var(--theme-gradient-from), var(--theme-gradient-to));
 	}
 </style>
 

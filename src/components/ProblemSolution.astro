@@ -1,8 +1,10 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import Button from './Button.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 const products = [
   {
@@ -65,7 +67,7 @@ const brands = [
 ];
 ---
 
-<section id="tecnologias" class="bg-gradient-to-br from-gray-50 to-white w-full">
+<section id="tecnologias" class="bg-gradient-to-br from-gray-50 to-white w-full py-16 md:py-20 lg:py-24">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('products.title')}</h2>
@@ -127,19 +129,25 @@ const brands = [
       </div>
     </div>
 
-    <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl p-8 md:p-12 text-white text-center">
-      <h3 class="text-3xl md:text-4xl font-bold mb-4">
-        {lang === 'es' ? '¡Juntos hacemos crecer la tierra con innovación!' : 'Together we make the earth grow with innovation!'}
-      </h3>
-      <p class="text-xl mb-8 text-emerald-100">
-        {lang === 'es' ? 'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel' : 'Discover all the brands we distribute and take your field to the next level'}
-      </p>
-      <a href={`/${lang}#contacto`} class="inline-flex items-center bg-white text-emerald-700 px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all">
-        {lang === 'es' ? 'Solicitar Información' : 'Request Information'}
-        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </a>
+    <div class="mt-10 rounded-3xl p-8 md:p-12 text-white text-center shadow-2xl relative overflow-hidden theme-institutional">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 blur-[100px] -mr-32 -mt-32"></div>
+      <div class="relative z-10">
+        <h3 class="text-3xl md:text-4xl font-bold mb-4">
+          {lang === 'es' ? '¡Juntos hacemos crecer la tierra con innovación!' : 'Together we make the earth grow with innovation!'}
+        </h3>
+        <p class="text-xl mb-8 text-white/90">
+          {lang === 'es' ? 'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel' : 'Discover all the brands we distribute and take your field to the next level'}
+        </p>
+        <a 
+          href={translatePath('#contacto')} 
+          class="inline-flex items-center justify-center bg-white/10 backdrop-blur-md text-white border-2 border-white/50 px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all"
+        >
+          {lang === 'es' ? 'Solicitar Información' : 'Request Information'}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -202,6 +210,14 @@ const brands = [
     .brand-track {
       animation: none;
     }
+  }
+
+  .theme-gradient {
+    background: linear-gradient(to bottom right, var(--theme-gradient-from), var(--theme-gradient-to));
+  }
+
+  .theme-text {
+    color: var(--theme-primary) !important;
   }
 </style>
 
