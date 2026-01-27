@@ -3,8 +3,7 @@
 ---
 
 <button 
-  id="theme-switcher" 
-  class="theme-btn p-2 rounded-full transition-all hover:scale-110 border-2"
+  class="theme-btn theme-switcher p-2 rounded-full transition-all hover:scale-110 border-2"
   aria-label="Cambiar tema de color"
   title="Cambiar tema"
 >
@@ -27,7 +26,7 @@
 </style>
 
 <script>
-  const themeSwitcher = document.getElementById('theme-switcher');
+  const themeSwitchers = document.querySelectorAll<HTMLButtonElement>('.theme-switcher');
   const html = document.documentElement;
   
   // Cargar tema guardado o usar azul por defecto
@@ -48,24 +47,26 @@
   setTheme(savedTheme);
   
   // Ciclar entre 3 temas: blue -> green -> balanced -> blue
-  themeSwitcher?.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    let newTheme: string;
-    
-    if (!currentTheme || currentTheme === 'blue') {
-      newTheme = 'green';
-    } else if (currentTheme === 'green') {
-      newTheme = 'balanced';
-    } else {
-      newTheme = 'blue';
-    }
-    
-    setTheme(newTheme);
-    
-    // Animación de cambio
-    themeSwitcher.style.transform = 'rotate(360deg)';
-    setTimeout(() => {
-      themeSwitcher.style.transform = '';
-    }, 300);
+  themeSwitchers.forEach((themeSwitcher) => {
+    themeSwitcher.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      let newTheme: string;
+      
+      if (!currentTheme || currentTheme === 'blue') {
+        newTheme = 'green';
+      } else if (currentTheme === 'green') {
+        newTheme = 'balanced';
+      } else {
+        newTheme = 'blue';
+      }
+      
+      setTheme(newTheme);
+      
+      // Animación de cambio
+      themeSwitcher.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeSwitcher.style.transform = '';
+      }, 300);
+    });
   });
 </script>
