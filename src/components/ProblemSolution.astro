@@ -1,6 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
-import Button from './Button.astro';
+import agrocubeLogo from '../assets/brands/agrocube_logo.png';
+import biovitaLogo from '../assets/brands/biovita_negro_1.png';
+import agriglobalLogo from '../assets/brands/logo_agriglobal.svg';
+import microvidasLogo from '../assets/brands/logo_microvidas.png';
+import bloemenLogo from '../assets/brands/logobloemen_1.svg';
+import simbiosLogo from '../assets/brands/simbios.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -57,14 +64,41 @@ const products = [
   }
 ];
 
-const brands = [
-  'Simbios',
-  'BioTech Agro',
-  'NanoFert',
-  'GreenPlus',
-  'AgroSolutions',
-  'EcoGrow'
+type Brand = {
+  name: string;
+  logo: ImageMetadata;
+  theme?: 'dark';
+};
+
+const brands: Brand[] = [
+  {
+    name: 'Agrocube',
+    logo: agrocubeLogo
+  },
+  {
+    name: 'Biovita',
+    logo: biovitaLogo
+  },
+  /* {
+    name: 'Agriglobal',
+    logo: agriglobalLogo,
+    theme: 'dark'
+  }, */
+  {
+    name: 'Microvidas',
+    logo: microvidasLogo
+  },
+  {
+    name: 'Bloemen',
+    logo: bloemenLogo
+  },
+  {
+    name: 'Simbios',
+    logo: simbiosLogo
+  }
 ];
+
+const brandLoop = [...brands, ...brands];
 ---
 
 <section id="tecnologias" class="bg-gradient-to-br from-gray-50 to-white w-full py-16 md:py-20 lg:py-24">
@@ -103,28 +137,30 @@ const brands = [
       </h3>
       <div class="brand-marquee" aria-label={lang === 'es' ? 'Marcas en movimiento continuo' : 'Brands in continuous motion'}>
         <div class="brand-track">
-          {brands.map((brand) => (
-            <div class="brand-logo brand-item flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-              <div class="text-center">
-                <div class="w-20 h-20 bg-gradient-to-br from-emerald-100 to-lime-100 rounded-2xl flex items-center justify-center mb-2 mx-auto">
-                  <span class="text-2xl font-bold text-emerald-700">{brand.substring(0, 2)}</span>
+          {brandLoop.map((brand, index) => {
+            const isDark = brand.theme === 'dark';
+            return (
+              <div
+                class="brand-logo brand-item flex items-center justify-center p-4 transition-all duration-300 transform hover:scale-105"
+                aria-hidden={index >= brands.length}
+              >
+                <div class={`brand-card text-center ${isDark ? 'brand-card--dark' : ''}`}>
+                  <div class={`brand-logo-box ${isDark ? 'brand-logo-box--dark' : ''}`}>
+                    <Image
+                      class="brand-logo-image"
+                      src={brand.logo}
+                      alt={brand.name}
+                      width={190}
+                      height={96}
+                      sizes="(min-width: 768px) 190px, 160px"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
-                <p class="text-sm font-semibold text-gray-700">{brand}</p>
               </div>
-            </div>
-          ))}
-        </div>
-        <div class="brand-track" aria-hidden="true">
-          {brands.map((brand) => (
-            <div class="brand-logo brand-item flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-              <div class="text-center">
-                <div class="w-20 h-20 bg-gradient-to-br from-emerald-100 to-lime-100 rounded-2xl flex items-center justify-center mb-2 mx-auto">
-                  <span class="text-2xl font-bold text-emerald-700">{brand.substring(0, 2)}</span>
-                </div>
-                <p class="text-sm font-semibold text-gray-700">{brand}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
@@ -166,10 +202,49 @@ const brands = [
     min-width: 160px;
   }
 
+  .brand-card {
+    /* background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(34, 197, 94, 0.08)); */
+    border: none;
+    /* box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06); */
+    border-radius: 18px;
+    padding: 14px 18px 12px;
+    min-width: 150px;
+  }
+
+  .brand-card--dark {
+    /* background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(34, 197, 94, 0.08)); */
+    /* border-color: rgba(148, 163, 184, 0.25); */
+  }
+
+  .brand-logo-box {
+    /* background: linear-gradient(135deg, #22d3ee, #38bdf8); */
+    border-radius: 14px;
+    padding: 12px;
+    width: 190px;
+    height: 96px;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.14);
+  }
+
+  .brand-logo-box--dark {
+   /*  background: linear-gradient(135deg, #22d3ee, #38bdf8); */
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.3);
+  }
+
+  .brand-logo-image {
+    width: 100%;
+    height: 100%;
+    max-height: 80px;
+    max-width: 170px;
+    object-fit: contain;
+  }
+
   .brand-marquee {
     --brand-speed: 28s;
     display: flex;
-    gap: 2.5rem;
     overflow: hidden;
     position: relative;
     padding: 0.5rem 0;
@@ -182,7 +257,11 @@ const brands = [
     align-items: center;
     gap: 2.5rem;
     flex-shrink: 0;
-    min-width: 100%;
+    width: max-content;
+    padding-right: 2.5rem;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
     animation: brand-scroll var(--brand-speed) linear infinite;
   }
 
@@ -199,10 +278,10 @@ const brands = [
 
   @keyframes brand-scroll {
     from {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     to {
-      transform: translateX(-100%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 
