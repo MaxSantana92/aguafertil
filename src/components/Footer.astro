@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import { Image } from 'astro:assets';
-import isoLogo from '../assets/iso_logo.png';
+import isoLogo from '../assets/iso_logo_blanco_horizontal.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -16,14 +16,8 @@ const t = useTranslations(lang);
           <Image 
             src={isoLogo}
             alt="Agua Fertil Logo - Agua y Nutrición Sustentable"
-            width={56}
-            height={56}
-            class="w-14 h-14"
+            class="w-36 h-auto"
           />
-          <div>
-            <span class="text-xl font-bold">aguafertil</span>
-            <p class="text-xs uppercase tracking-wide opacity-80">Nutrición Vegetal Biológica</p>
-          </div>
         </div>
         <p class="text-emerald-100 text-sm leading-relaxed">
           {t('footer.description')}

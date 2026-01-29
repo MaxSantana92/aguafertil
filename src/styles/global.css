@@ -17,6 +17,7 @@
   --theme-gradient-from: #40B6D9;
   --theme-gradient-to: #2d8ba8;
   --theme-shadow: rgba(64, 182, 217, 0.5);
+  --nav-offset: 20px;
   
   --color-fondo: #F9F9F9;
   --color-texto-oscuro: #4D4D4D;
@@ -58,7 +59,11 @@
 
 html {
   /* Compensación para el header fijo al navegar con anclas */
-  scroll-padding-top: 100px;
+  scroll-padding-top: var(--nav-offset);
+}
+
+section[id] {
+  scroll-margin-top: var(--nav-offset);
 }
 
 body {
