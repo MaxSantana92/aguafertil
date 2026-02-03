@@ -1,5 +1,9 @@
 ---
 import { Image } from 'astro:assets';
+import hero1 from '../assets/hero/hero_1.webp';
+import hero2 from '../assets/hero/hero_2.webp';
+import hero3 from '../assets/hero/hero_3.webp';
+import hero4 from '../assets/hero/hero_4.webp';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 import Button from './Button.astro';
 
@@ -9,19 +13,19 @@ const translatePath = useTranslatedPath(lang);
 
 const slidesData = [
   {
-    src: "https://images.pexels.com/photos/2132250/pexels-photo-2132250.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    src: hero1,
     alt: t('hero.slide1.alt') || "Campo de cultivo agrícola"
   },
   {
-    src: "https://images.pexels.com/photos/1382102/pexels-photo-1382102.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    src: hero2,
     alt: t('hero.slide2.alt') || "Sistema de riego eficiente"
   },
   {
-    src: "https://images.pexels.com/photos/2255801/pexels-photo-2255801.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    src: hero3,
     alt: t('hero.slide3.alt') || "Tecnología agrícola avanzada"
   },
   {
-    src: "https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    src: hero4,
     alt: t('hero.slide4.alt') || "Sostenibilidad y medio ambiente"
   }
 ];
@@ -32,7 +36,7 @@ const slidesData = [
     <div class="slider-container relative w-full h-full">
       {slidesData.map((slide, index) => (
         <div class={`slide ${index === 0 ? 'active' : ''}`}>
-          <div class="absolute inset-0 bg-black/40 z-10"></div>
+          <div class="absolute inset-0 bg-black/30 z-10"></div>
           <Image 
             src={slide.src} 
             alt={slide.alt}

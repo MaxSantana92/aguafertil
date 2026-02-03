@@ -60,6 +60,7 @@ export const ui = {
     'footer.description': 'Somos una empresa especializada en tecnologías para el agro basadas en la sustentabilidad, medio ambiente e innovación.',
     'footer.contact': 'Contacto',
     'footer.follow': 'Síguenos',
+    'footer.workus': 'Trabajá con Nosotros',
     'footer.rights': 'Todos los derechos reservados',
   },
   en: {
@@ -117,6 +118,7 @@ export const ui = {
     'footer.description': 'We are a company specialized in agricultural technologies based on sustainability, environment and innovation.',
     'footer.contact': 'Contact',
     'footer.follow': 'Follow Us',
+    'footer.workus': 'Work with Us',
     'footer.rights': 'All rights reserved',
   },
 } as const;

@@ -68,15 +68,15 @@ const t = useTranslations(lang);
     <div class="mt-16 bg-gradient-to-br from-[#F9F9F9] to-white border border-gray-100 rounded-3xl p-8 md:p-12 shadow-inner">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <div class="counter-item">
-          <div class="text-5xl font-bold text-[#8DC63F] mb-2" data-target="150">0</div>
+          <div class="text-5xl font-bold text-[#8DC63F] mb-2">+<span data-target="500">0</span></div>
           <p class="text-gray-700 font-medium">{lang === 'es' ? 'Productores Asesorados' : 'Advised Producers'}</p>
         </div>
         <div class="counter-item">
-          <div class="text-5xl font-bold text-[#8DC63F] mb-2" data-target="15">0</div>
+          <div class="text-5xl font-bold text-[#8DC63F] mb-2">+<span data-target="15">0</span></div>
           <p class="text-gray-700 font-medium">{lang === 'es' ? 'Años de Experiencia' : 'Years of Experience'}</p>
         </div>
         <div class="counter-item">
-          <div class="text-5xl font-bold text-[#8DC63F] mb-2" data-target="25">0</div>
+          <div class="text-5xl font-bold text-[#8DC63F] mb-2">+<span data-target="25">0</span></div>
           <p class="text-gray-700 font-medium">{lang === 'es' ? 'Tecnologías Disponibles' : 'Available Technologies'}</p>
         </div>
       </div>
@@ -108,7 +108,7 @@ const t = useTranslations(lang);
         const target = entry.target as HTMLElement;
         const targetValue = parseInt(target.getAttribute('data-target') || '0');
         let currentValue = 0;
-        const increment = targetValue / 50;
+        const increment = targetValue / 100;
 
         const updateCounter = () => {
           currentValue += increment;
