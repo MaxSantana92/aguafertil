@@ -25,8 +25,7 @@ export const ui = {
 
     'about.title': 'El Futuro del Agro es Bio-Inteligente',
     'about.subtitle': '¿Buscas optimizar tu producción agrícola con tecnología sustentable?',
-    'about.description': 'En Aguafértil fusionamos innovación y naturaleza. Nos especializamos en insumos agrícolas de última generación diseñados para mejorar la productividad sin comprometer el medio ambiente. Acompañamos al productor en la transición hacia una agricultura regenerativa, optimizando recursos para lograr cultivos más rentables y suelos más sanos. Nuestro objetivo es claro: garantizar la seguridad alimentaria hoy, protegiendo el ecosistema del mañana.',
-
+    'about.description': 'Somos una empresa que se especializa en ofrecer productos para el agro basados en la sustentabilidad, medio ambiente y tecnología. Acompañamos a los agricultores a impulsar prácticas sustentables en el largo plazo. Estas contribuyen con el cuidado del medio ambiente y la optimización de los recursos de los cuales depende, satisfaciendo las necesidades básicas de alimentos, siendo económicamente viable y mejorando la calidad de vida del productor y la sociedad. En Aguafértil utilizamos las nuevas tecnologías, bio y nanopartículas aplicadas al agro. Nuestra gran paleta de productos se basa en: materia orgánica, biofertilizantes, orgánicos certificados, bioestimulantes foliares, microorganismos, funguicidas, fertilizantes minerales en nanopartículas y correctores de suelo.',
     'products.title': 'Nuestras Tecnologías',
     'products.subtitle': 'Descubre todas las marcas que distribuimos',
 
@@ -82,7 +81,7 @@ export const ui = {
 
     'about.title': 'The Future of Agriculture is Bio-Intelligent',
     'about.subtitle': 'Looking to optimize your agricultural production with sustainable technology?',
-    'about.description': 'At Aguafértil, we merge innovation and nature. We specialize in cutting-edge agricultural inputs designed to improve productivity without compromising the environment. We accompany producers in the transition to regenerative agriculture, optimizing resources to achieve more profitable crops and healthier soils. Our goal is clear: ensure food security today, protecting tomorrow\'s ecosystem.',
+    'about.description': 'We are a company that specializes in offering agricultural products based on sustainability, the environment, and technology. We support farmers in promoting long-term sustainable practices. These contribute to caring for the environment and optimizing the resources on which it depends, satisfying basic food needs, being economically viable, and improving the quality of life for the producer and society. At Aguafértil, we use new technologies, bio and nanoparticles applied to agriculture. Our wide range of products is based on: organic matter, biofertilizers, certified organics, foliar biostimulants, microorganisms, fungicides, mineral fertilizers in nanoparticles, and soil correctors.',
 
     'products.title': 'Our Technologies',
     'products.subtitle': 'Discover all the brands we distribute',
