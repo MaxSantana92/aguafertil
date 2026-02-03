@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 import Button from './Button.astro';
-import ThemeSwitcher from './ThemeSwitcher.astro';
+
 import { Image } from 'astro:assets';
 import isoLogo from '../assets/iso_logo.png';
 
@@ -42,7 +42,7 @@ const translatePath = useTranslatedPath(lang);
         <a href={translatePath('#testimonios')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
         
         <div class="flex items-center gap-3">
-          <ThemeSwitcher />
+
           <Button 
             href={translatePath('#contacto')} 
             text={t('nav.contacto')} 
@@ -65,7 +65,7 @@ const translatePath = useTranslatedPath(lang);
       <a href={translatePath('#testimonios')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
       
       <div class="flex items-center gap-3 pt-2">
-        <ThemeSwitcher />
+
         <Button 
           href={translatePath('#contacto')} 
           text={t('nav.contacto')} 
