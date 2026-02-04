@@ -107,6 +107,9 @@ export const ui = {
     'footer.workus': 'Trabajá con Nosotros',
     'footer.rights': 'Todos los derechos reservados',
     'footer.powered': 'Powered By AgriTech',
+    
+    'whatsapp.title': 'Solicitá Información',
+    'whatsapp.chat_link': 'Enlace al chat',
   },
   en: {
     'nav.inicio': 'Home',
@@ -210,5 +213,8 @@ export const ui = {
     'footer.workus': 'Work with Us',
     'footer.rights': 'All rights reserved',
     'footer.powered': 'Powered By AgriTech',
+
+    'whatsapp.title': 'Request Information',
+    'whatsapp.chat_link': 'Chat Link',
   },
 } as const;

@@ -1,17 +1,21 @@
 ---
 interface Props {
 	href?: string;
+	target?: string;
+	rel?: string;
 	text: string;
 	className?: string;
 	type?: 'button' | 'submit' | 'reset';
 }
 
-const { href, text, className = '', type = 'button' } = Astro.props;
+const { href, target, rel, text, className = '', type = 'button' } = Astro.props;
 const Element = href ? 'a' : 'button';
 ---
 
 <Element
 	href={href}
+	target={target}
+	rel={rel}
 	type={!href ? type : undefined}
 	class={`boton-agua-fertil ${className}`}
 >
