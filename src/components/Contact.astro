@@ -187,30 +187,58 @@ const t = useTranslations(lang);
     e.preventDefault();
 
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    
+    // Example: 'xyzyqwer'
+    const FORMSPREE_ENDPOINT = '';
+    debugger;
 
+    if (!FORMSPREE_ENDPOINT.includes('mgozgjwa')) {
+      console.warn('Formspree Form ID missing. SUBMISSION WILL FAIL until configured.');
+      formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+      formMessage.classList.add('bg-emerald-100', 'text-emerald-700');
+      formMessage.textContent = document.documentElement.lang === 'es' ? 'Servicio no disponible en este momento' : 'Service not available at this time';  
+      return;
+    }
     try {
       formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
       formMessage.classList.add('bg-emerald-100', 'text-emerald-700');
-      formMessage.textContent = 'Enviando mensaje...';
+      formMessage.textContent = document.documentElement.lang === 'es' ? 'Enviando mensaje...' : 'Sending message...';
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-      const successMsg = formMessage.dataset.successMessage || 'Mensaje enviado correctamente.';
-      formMessage.textContent = successMsg;
+      if (response.ok) {
+        const successMsg = formMessage.dataset.successMessage || 'Mensaje enviado correctamente.';
+        formMessage.textContent = successMsg;
 
-      form.reset();
-      setTimeout(() => {
-        formMessage.classList.add('hidden');
-        formMessage.classList.remove('bg-emerald-100', 'text-emerald-700');
-      }, 5000);
+        form.reset();
+        setTimeout(() => {
+          formMessage.classList.add('hidden');
+          formMessage.classList.remove('bg-emerald-100', 'text-emerald-700');
+        }, 5000);
+      } else {
+         const data = await response.json();
+         if (Object.hasOwn(data, 'errors')) {
+           formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+           formMessage.classList.add('bg-emerald-100', 'text-emerald-700');
+           formMessage.textContent = document.documentElement.lang === 'es' ? 'Servicio no disponible en este momento' : 'Service not available at this time';
+           throw new Error(data["errors"].map((error: any) => error["message"]).join(", "));
+         } else {
+           throw new Error(document.documentElement.lang === 'es' ? 'Servicio no disponible en este momento' : 'Service not available at this time');
+         }
+      }
     } catch (error) {
       formMessage.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-700');
       formMessage.classList.add('bg-red-100', 'text-red-700');
       formMessage.textContent = document.documentElement.lang === 'es'
         ? 'Error al enviar el mensaje. Inténtalo de nuevo.'
         : 'Error sending message. Please try again.';
+      console.error('Submission error:', error);
     }
   });
 </script>
