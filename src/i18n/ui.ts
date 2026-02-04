@@ -41,6 +41,7 @@ export const ui = {
 
     'social.title': 'Conocé los testimonios en nuestras redes sociales',
     'social.subtitle': 'Síguenos en Instagram, YouTube y Spotify',
+    'social.video_caption': 'Cultivo de Olivos - Chilecito La Rioja',
 
     'faq.title': 'Preguntas Frecuentes',
     'faq.subtitle': 'Respondemos tus consultas',
@@ -99,6 +100,7 @@ export const ui = {
 
     'social.title': 'See the testimonials on our social media',
     'social.subtitle': 'Follow us on Instagram, YouTube and Spotify',
+    'social.video_caption': 'Olive Cultivation - Chilecito La Rioja',
 
     'faq.title': 'Frequently Asked Questions',
     'faq.subtitle': 'We answer your questions',

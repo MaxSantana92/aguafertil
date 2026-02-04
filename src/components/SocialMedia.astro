@@ -1,5 +1,10 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import testimonialVideo from '../assets/testimonials/testimonial_1.mp4';
+import logo from '../assets/iso_logo.png';
+import Image from 'astro/components/Image.astro';
+
+import logoVertical from '../assets/iso_logo_blanco_vertical.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -37,6 +42,50 @@ const socialLinks = [
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('social.title')}</h2>
       <p class="text-xl text-gray-600">{t('social.subtitle')}</p>
+    </div>
+
+    <div class="flex flex-col justify-center items-center mb-12">
+      <div 
+        id="video-card"
+        class="relative bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl shadow-lg w-full max-w-[300px] cursor-pointer overflow-hidden transition-all duration-500 ease-in-out group hover:shadow-xl hover:scale-105"
+      >
+        <!-- State: Collapsed (Preview) -->
+        <div id="video-preview" class="p-8 flex flex-col items-center justify-center min-h-[300px] text-white">
+            <div class="absolute inset-0 opacity-20">
+                <Image src={logoVertical} alt="Background" class="w-full h-full object-cover" />
+            </div>
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="mb-6 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+                    <svg class="w-24 h-24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path 
+                            d="M18.2403 10.45L7.97344 4.09038C6.68087 3.28965 5 4.21919 5 5.73976V18.2602C5 19.7808 6.68087 20.7104 7.97344 19.9096L18.2403 13.55C19.4678 12.7895 19.4678 11.2105 18.2403 10.45Z" 
+                            class="fill-white/30 stroke-white/80" 
+                            stroke-width="1.5" 
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                    <!-- Glass reflection effect simulation -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none rounded-lg mask-play"></div>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Testimonio</h3>
+                <p class="text-white/90 text-center text-sm">{t('social.video_caption')}</p>
+            </div>
+        </div>
+
+        <!-- State: Expanded (Video) -->
+        <div id="video-content" class="hidden bg-black aspect-[9/16]">
+          <video 
+            id="main-video"
+            class="w-full h-full object-contain"
+            controls
+            playsinline
+            poster={logoVertical.src}
+          >
+            <source src={testimonialVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -81,9 +130,50 @@ const socialLinks = [
   </div>
 </section>
 
+<script>
+    function setupVideoCard() {
+        const videoCard = document.getElementById('video-card');
+        const videoPreview = document.getElementById('video-preview');
+        const videoContent = document.getElementById('video-content');
+        const mainVideo = document.getElementById('main-video') as HTMLVideoElement;
+
+        // Prevent attaching multiple listeners if function runs twice
+        if (videoCard && !videoCard.dataset.initialized) {
+            videoCard.dataset.initialized = 'true';
+            
+            videoCard.addEventListener('click', () => {
+                const isExpanded = videoCard.classList.contains('expanded');
+                
+                if (!isExpanded) {
+                    // Expand
+                    videoCard.classList.add('expanded');
+                    
+                    // Simple swap for now, but container animates width via CSS
+                    videoPreview.style.display = 'none';
+                    videoContent.classList.remove('hidden');
+                    
+                    // Adjust max-width via class
+                    videoCard.classList.remove('max-w-[300px]');
+                    videoCard.classList.add('max-w-[400px]');
+
+                   if (mainVideo) {
+                        mainVideo.play();
+                   }
+                }
+            });
+        }
+    }
+
+    // Run on both events to ensure it works with and without ViewTransitions
+    document.addEventListener('astro:page-load', setupVideoCard);
+    document.addEventListener('DOMContentLoaded', setupVideoCard);
+</script>
+
+
+
 <style>
   .social-card {
-    animation: bounceIn 0.8s ease-out;
+    animation: bounceIn 1s ease-out;
     animation-fill-mode: both;
   }
 
