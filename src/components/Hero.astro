@@ -36,7 +36,7 @@ const slidesData = [
     <div class="slider-container relative w-full h-full">
       {slidesData.map((slide, index) => (
         <div class={`slide ${index === 0 ? 'active' : ''}`}>
-          <div class="absolute inset-0 bg-black/30 z-10"></div>
+          <div class="absolute inset-0 bg-black/20 z-10"></div>
           <Image 
             src={slide.src} 
             alt={slide.alt}
