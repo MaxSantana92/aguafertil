@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import { Image } from 'astro:assets';
 import isoLogo from '../assets/iso_logo_blanco_horizontal.png';
+import logoAgritech from '../assets/footer/logo_agritech.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -82,6 +83,10 @@ const t = useTranslations(lang);
 
     <div class="border-t border-white/10 pt-6 text-center text-white text-sm">
       <p>&copy; {new Date().getFullYear()} Agua Fertil. {t('footer.rights')}</p>
+      <div class="w-full flex items-center justify-center text-center space-x-2">
+        <a href="https://agritech.ar" target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-white/80 transition-all hover:scale-110">{t('footer.powered')}</a> 
+        <Image src={logoAgritech} alt="AgriTech" class="w-8 h-8 inline-block">
+      </div>
     </div>
   </div>
 </footer>

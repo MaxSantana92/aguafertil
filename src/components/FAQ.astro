@@ -6,40 +6,28 @@ const t = useTranslations(lang);
 
 const faqs = [
   {
-    question: '¿Qué tecnologías ofrecen?',
-    questionEn: 'What technologies do you offer?',
-    answer: 'Ofrecemos una amplia gama de tecnologías: materia orgánica, biofertilizantes, bioestimulantes foliares, microorganismos, nanopartículas y correctores de suelo. Todas basadas en tecnología sustentable.',
-    answerEn: 'We offer a wide range of technologies: organic matter, biofertilizers, foliar biostimulants, microorganisms, nanoparticles and soil correctors. All based on sustainable technology.'
+    question: t('faq.questions.1.question'),
+    answer: t('faq.questions.1.answer')
   },
   {
-    question: '¿Ofrecen asesoramiento técnico?',
-    questionEn: 'Do you offer technical advice?',
-    answer: 'Sí, contamos con profesionales especializados que brindan asesoramiento personalizado en cada etapa del cultivo, desde la selección de tecnologías hasta la aplicación.',
-    answerEn: 'Yes, we have specialized professionals who provide personalized advice at each stage of cultivation, from technology selection to application.'
+    question: t('faq.questions.2.question'),
+    answer: t('faq.questions.2.answer')
   },
   {
-    question: '¿En qué zonas trabajan?',
-    questionEn: 'What areas do you work in?',
-    answer: 'Trabajamos principalmente en San Juan y La Rioja, ofreciendo cobertura completa en toda la región para distribución, asesoramiento y soporte técnico.',
-    answerEn: 'We work mainly in San Juan and La Rioja, offering complete coverage throughout the region for distribution, advice and technical support.'
+    question: t('faq.questions.3.question'),
+    answer: t('faq.questions.3.answer')
   },
   {
-    question: '¿Prestan maquinaria?',
-    questionEn: 'Do you lend machinery?',
-    answer: 'Sí, ofrecemos préstamo de maquinaria especializada para la aplicación de nuestras tecnologías, facilitando el trabajo de los productores.',
-    answerEn: 'Yes, we offer specialized machinery loans for the application of our technologies, making it easier for producers to work.'
+    question: t('faq.questions.4.question'),
+    answer: t('faq.questions.4.answer')
   },
   {
-    question: '¿Las tecnologías son certificadas orgánicas?',
-    questionEn: 'Are the technologies certified organic?',
-    answer: 'Contamos con tecnologías orgánicas certificadas y también con soluciones basadas en biotecnología y nanopartículas que respetan el medio ambiente.',
-    answerEn: 'We have certified organic technologies and also solutions based on biotechnology and nanoparticles that respect the environment.'
+    question: t('faq.questions.5.question'),
+    answer: t('faq.questions.5.answer')
   },
   {
-    question: '¿Cómo puedo hacer un pedido?',
-    questionEn: 'How can I place an order?',
-    answer: 'Puedes contactarnos a través del formulario de esta web, por teléfono, email o visitándonos directamente. Nuestro equipo te asesorará sobre las tecnologías más adecuadas para tu cultivo.',
-    answerEn: 'You can contact us through the form on this website, by phone, email or by visiting us directly. Our team will advise you on the most suitable technologies for your crop.'
+    question: t('faq.questions.6.question'),
+    answer: t('faq.questions.6.answer')
   }
 ];
 ---
@@ -59,7 +47,7 @@ const faqs = [
             data-faq={index}
           >
             <span class="text-lg font-semibold text-gray-900 pr-4">
-              {lang === 'es' ? faq.question : faq.questionEn}
+              {faq.question}
             </span>
             <svg class="faq-icon w-6 h-6 text-emerald-600 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -67,7 +55,7 @@ const faqs = [
           </button>
           <div class="faq-answer hidden px-6 pb-6">
             <p class="text-gray-600 leading-relaxed">
-              {lang === 'es' ? faq.answer : faq.answerEn}
+              {faq.answer}
             </p>
           </div>
         </div>

@@ -69,15 +69,15 @@ const t = useTranslations(lang);
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <div class="counter-item">
           <div class="text-5xl font-bold text-[#8DC63F] mb-2">+<span data-target="500">0</span></div>
-          <p class="text-gray-700 font-medium">{lang === 'es' ? 'Productores Asesorados' : 'Advised Producers'}</p>
+          <p class="text-gray-700 font-medium">{t('benefits.counter.producers')}</p>
         </div>
         <div class="counter-item">
           <div class="text-5xl font-bold text-[#8DC63F] mb-2">+<span data-target="15">0</span></div>
-          <p class="text-gray-700 font-medium">{lang === 'es' ? 'Años de Experiencia' : 'Years of Experience'}</p>
+          <p class="text-gray-700 font-medium">{t('benefits.counter.years')}</p>
         </div>
         <div class="counter-item">
           <div class="text-5xl font-bold text-[#8DC63F] mb-2">+<span data-target="25">0</span></div>
-          <p class="text-gray-700 font-medium">{lang === 'es' ? 'Tecnologías Disponibles' : 'Available Technologies'}</p>
+          <p class="text-gray-700 font-medium">{t('benefits.counter.technologies')}</p>
         </div>
       </div>
     </div>
