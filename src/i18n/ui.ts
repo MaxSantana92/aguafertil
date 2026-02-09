@@ -1,9 +1,9 @@
 export const languages = {
   es: 'Español',
   en: 'English',
-};
+}
 
-export const defaultLang = 'es';
+export const defaultLang = 'es'
 
 export const ui = {
   es: {
@@ -16,7 +16,8 @@ export const ui = {
     'nav.slogan': 'Nutrición Vegetal Biológica',
 
     'hero.title': 'Biotecnología Sustentable para el Agro',
-    'hero.subtitle': 'Acompañamos tu producción con asesoramiento profesional y soluciones innovadoras. Conocé más de nosotros.',
+    'hero.subtitle':
+      'Acompañamos tu producción con asesoramiento profesional y soluciones innovadoras. Conocé más de nosotros.',
     'hero.cta': 'Solicitar Asesoramiento',
     'hero.cta.secondary': 'Ver Tecnologías',
     'hero.slide1.alt': 'Campo de cultivo agrícola bajo un cielo despejado',
@@ -26,14 +27,16 @@ export const ui = {
 
     'about.title': 'El Futuro del Agro es Bio-Inteligente',
     'about.subtitle': '¿Buscas optimizar tu producción agrícola con tecnología sustentable?',
-    'about.description': 'Somos una empresa que se especializa en ofrecer productos para el agro basados en la sustentabilidad, medio ambiente y tecnología. Acompañamos a los agricultores a impulsar prácticas sustentables en el largo plazo. Estas contribuyen con el cuidado del medio ambiente y la optimización de los recursos de los cuales depende, satisfaciendo las necesidades básicas de alimentos, siendo económicamente viable y mejorando la calidad de vida del productor y la sociedad. En Aguafértil utilizamos las nuevas tecnologías, bio y nanopartículas aplicadas al agro. Nuestra gran paleta de productos se basa en: materia orgánica, biofertilizantes, orgánicos certificados, bioestimulantes foliares, microorganismos, funguicidas, fertilizantes minerales en nanopartículas y correctores de suelo.',
+    'about.description':
+      'Somos una empresa que se especializa en ofrecer productos para el agro basados en la sustentabilidad, medio ambiente y tecnología. Acompañamos a los agricultores a impulsar prácticas sustentables en el largo plazo. Estas contribuyen con el cuidado del medio ambiente y la optimización de los recursos de los cuales depende, satisfaciendo las necesidades básicas de alimentos, siendo económicamente viable y mejorando la calidad de vida del productor y la sociedad. En Aguafértil utilizamos las nuevas tecnologías, bio y nanopartículas aplicadas al agro. Nuestra gran paleta de productos se basa en: materia orgánica, biofertilizantes, orgánicos certificados, bioestimulantes foliares, microorganismos, funguicidas, fertilizantes minerales en nanopartículas y correctores de suelo.',
     'products.title': 'Distribuidor Oficial',
-    'products.subtitle': 'Tecnología',
+    'products.subtitle': 'Nuestras Tecnologías',
     'products.image_alt': 'Imagen de tecnología agrícola',
     'products.brands_title': 'Marcas que Distribuimos',
     'products.brands_aria': 'Marcas en movimiento continuo',
     'products.cta_title': '¡Juntos hacemos crecer la tierra con innovación!',
-    'products.cta_description': 'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel',
+    'products.cta_description':
+      'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel',
     'products.catalog_button': 'Ver nuestro catálogo',
 
     'benefits.title': 'Beneficios de Trabajar con Nosotros',
@@ -88,26 +91,33 @@ export const ui = {
     'location.email_label': 'Email',
 
     'faq.questions.1.question': '¿Qué tecnologías ofrecen?',
-    'faq.questions.1.answer': 'Ofrecemos una amplia gama de tecnologías: materia orgánica, biofertilizantes, bioestimulantes foliares, microorganismos, nanopartículas y correctores de suelo. Todas basadas en tecnología sustentable.',
+    'faq.questions.1.answer':
+      'Ofrecemos una amplia gama de tecnologías: materia orgánica, biofertilizantes, bioestimulantes foliares, microorganismos, nanopartículas y correctores de suelo. Todas basadas en tecnología sustentable.',
     'faq.questions.2.question': '¿Ofrecen asesoramiento técnico?',
-    'faq.questions.2.answer': 'Sí, contamos con profesionales especializados que brindan asesoramiento personalizado en cada etapa del cultivo, desde la selección de tecnologías hasta la aplicación.',
+    'faq.questions.2.answer':
+      'Sí, contamos con profesionales especializados que brindan asesoramiento personalizado en cada etapa del cultivo, desde la selección de tecnologías hasta la aplicación.',
     'faq.questions.3.question': '¿En qué zonas trabajan?',
-    'faq.questions.3.answer': 'Trabajamos principalmente en San Juan y La Rioja, ofreciendo cobertura completa en toda la región para distribución, asesoramiento y soporte técnico.',
+    'faq.questions.3.answer':
+      'Trabajamos principalmente en San Juan y La Rioja, ofreciendo cobertura completa en toda la región para distribución, asesoramiento y soporte técnico.',
     'faq.questions.4.question': '¿Prestan maquinaria?',
-    'faq.questions.4.answer': 'Sí, ofrecemos préstamo de maquinaria especializada para la aplicación de nuestras tecnologías, facilitando el trabajo de los productores.',
+    'faq.questions.4.answer':
+      'Sí, ofrecemos préstamo de maquinaria especializada para la aplicación de nuestras tecnologías, facilitando el trabajo de los productores.',
     'faq.questions.5.question': '¿Las tecnologías son certificadas orgánicas?',
-    'faq.questions.5.answer': 'Contamos con tecnologías orgánicas certificadas y también con soluciones basadas en biotecnología y nanopartículas que respetan el medio ambiente.',
+    'faq.questions.5.answer':
+      'Contamos con tecnologías orgánicas certificadas y también con soluciones basadas en biotecnología y nanopartículas que respetan el medio ambiente.',
     'faq.questions.6.question': '¿Cómo puedo hacer un pedido?',
-    'faq.questions.6.answer': 'Puedes contactarnos a través del formulario de esta web, por teléfono, email o visitándonos directamente. Nuestro equipo te asesorará sobre las tecnologías más adecuadas para tu cultivo.',
+    'faq.questions.6.answer':
+      'Puedes contactarnos a través del formulario de esta web, por teléfono, email o visitándonos directamente. Nuestro equipo te asesorará sobre las tecnologías más adecuadas para tu cultivo.',
 
     'footer.about': 'Sobre Nosotros',
-    'footer.description': 'Somos una empresa especializada en tecnologías para el agro basadas en la sustentabilidad, medio ambiente e innovación.',
+    'footer.description':
+      'Somos una empresa especializada en tecnologías para el agro basadas en la sustentabilidad, medio ambiente e innovación.',
     'footer.contact': 'Contacto',
     'footer.follow': 'Síguenos',
     'footer.workus': 'Trabajá con Nosotros',
     'footer.rights': 'Todos los derechos reservados',
     'footer.powered': 'Powered By AgriTech',
-    
+
     'whatsapp.title': 'Solicitá Información',
     'whatsapp.chat_link': 'Enlace al chat',
   },
@@ -121,7 +131,8 @@ export const ui = {
     'nav.slogan': 'Biological Plant Nutrition',
 
     'hero.title': 'Sustainable Biotechnology for Agriculture',
-    'hero.subtitle': 'We support your production with professional advice and innovative solutions. Learn more about us.',
+    'hero.subtitle':
+      'We support your production with professional advice and innovative solutions. Learn more about us.',
     'hero.cta': 'Request Consultation',
     'hero.cta.secondary': 'View Technologies',
     'hero.slide1.alt': 'Agricultural crop field under a clear sky',
@@ -130,16 +141,19 @@ export const ui = {
     'hero.slide4.alt': 'Green sprout growing in fertile soil, symbolizing sustainability',
 
     'about.title': 'The Future of Agriculture is Bio-Intelligent',
-    'about.subtitle': 'Looking to optimize your agricultural production with sustainable technology?',
-    'about.description': 'We are a company that specializes in offering agricultural products based on sustainability, the environment, and technology. We support farmers in promoting long-term sustainable practices. These contribute to caring for the environment and optimizing the resources on which it depends, satisfying basic food needs, being economically viable, and improving the quality of life for the producer and society. At Aguafértil, we use new technologies, bio and nanoparticles applied to agriculture. Our wide range of products is based on: organic matter, biofertilizers, certified organics, foliar biostimulants, microorganisms, fungicides, mineral fertilizers in nanoparticles, and soil correctors.',
+    'about.subtitle':
+      'Looking to optimize your agricultural production with sustainable technology?',
+    'about.description':
+      'We are a company that specializes in offering agricultural products based on sustainability, the environment, and technology. We support farmers in promoting long-term sustainable practices. These contribute to caring for the environment and optimizing the resources on which it depends, satisfying basic food needs, being economically viable, and improving the quality of life for the producer and society. At Aguafértil, we use new technologies, bio and nanoparticles applied to agriculture. Our wide range of products is based on: organic matter, biofertilizers, certified organics, foliar biostimulants, microorganisms, fungicides, mineral fertilizers in nanoparticles, and soil correctors.',
 
     'products.title': 'Official Distributor',
-    'products.subtitle': 'Technology',
+    'products.subtitle': 'Our Technologies',
     'products.image_alt': 'Agricultural technology image',
     'products.brands_title': 'Brands We Distribute',
     'products.brands_aria': 'Brands in continuous motion',
     'products.cta_title': 'Together we make the earth grow with innovation!',
-    'products.cta_description': 'Discover all the brands we distribute and take your field to the next level',
+    'products.cta_description':
+      'Discover all the brands we distribute and take your field to the next level',
     'products.catalog_button': 'View our catalog',
 
     'benefits.title': 'Benefits of Working with Us',
@@ -194,20 +208,27 @@ export const ui = {
     'location.email_label': 'Email',
 
     'faq.questions.1.question': 'What technologies do you offer?',
-    'faq.questions.1.answer': 'We offer a wide range of technologies: organic matter, biofertilizers, foliar biostimulants, microorganisms, nanoparticles and soil correctors. All based on sustainable technology.',
+    'faq.questions.1.answer':
+      'We offer a wide range of technologies: organic matter, biofertilizers, foliar biostimulants, microorganisms, nanoparticles and soil correctors. All based on sustainable technology.',
     'faq.questions.2.question': 'Do you offer technical advice?',
-    'faq.questions.2.answer': 'Yes, we have specialized professionals who provide personalized advice at each stage of cultivation, from technology selection to application.',
+    'faq.questions.2.answer':
+      'Yes, we have specialized professionals who provide personalized advice at each stage of cultivation, from technology selection to application.',
     'faq.questions.3.question': 'What areas do you work in?',
-    'faq.questions.3.answer': 'We work mainly in San Juan and La Rioja, offering complete coverage throughout the region for distribution, advice and technical support.',
+    'faq.questions.3.answer':
+      'We work mainly in San Juan and La Rioja, offering complete coverage throughout the region for distribution, advice and technical support.',
     'faq.questions.4.question': 'Do you lend machinery?',
-    'faq.questions.4.answer': 'Yes, we offer specialized machinery loans for the application of our technologies, making it easier for producers to work.',
+    'faq.questions.4.answer':
+      'Yes, we offer specialized machinery loans for the application of our technologies, making it easier for producers to work.',
     'faq.questions.5.question': 'Are the technologies certified organic?',
-    'faq.questions.5.answer': 'We have certified organic technologies and also solutions based on biotechnology and nanoparticles that respect the environment.',
+    'faq.questions.5.answer':
+      'We have certified organic technologies and also solutions based on biotechnology and nanoparticles that respect the environment.',
     'faq.questions.6.question': 'How can I place an order?',
-    'faq.questions.6.answer': 'You can contact us through the form on this website, by phone, email or by visiting us directly. Our team will advise you on the most suitable technologies for your crop.',
+    'faq.questions.6.answer':
+      'You can contact us through the form on this website, by phone, email or by visiting us directly. Our team will advise you on the most suitable technologies for your crop.',
 
     'footer.about': 'About Us',
-    'footer.description': 'We are a company specialized in agricultural technologies based on sustainability, environment and innovation.',
+    'footer.description':
+      'We are a company specialized in agricultural technologies based on sustainability, environment and innovation.',
     'footer.contact': 'Contact',
     'footer.follow': 'Follow Us',
     'footer.workus': 'Work with Us',
@@ -217,4 +238,4 @@ export const ui = {
     'whatsapp.title': 'Request Information',
     'whatsapp.chat_link': 'Chat Link',
   },
-} as const;
+} as const
