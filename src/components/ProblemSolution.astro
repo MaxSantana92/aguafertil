@@ -14,6 +14,9 @@ import bioestimulanteFoliarImg from '../assets/technologies/bioestimulante_folia
 import nanoparticulasSueloImg from '../assets/technologies/nanoparticulas_suelo.jpeg';
 import microorganismosBeneficosImg from '../assets/technologies/microorganismos_benéficos.jpeg';
 import biocontroladoresImg from '../assets/technologies/biocontroladores.jpeg';
+import jasCertifiedImg from '../assets/certifications/jas_certified_organic.webp';
+import logoOrganicosImg from '../assets/certifications/logo_organicos.png';
+import usdaSymbolImg from '../assets/certifications/usda-symbol.svg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -188,6 +191,15 @@ const brandLoop = [...brands, ...brands];
             );
           })}
         </div>
+      </div>
+
+      <p class="text-center text-gray-700 text-lg mt-10 mb-6">
+        {t('products.organic_certifications')}
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-8">
+        <Image src={jasCertifiedImg} alt="JAS Certified Organic" width={100} height={100} class="h-16 md:h-20 w-auto object-contain" loading="lazy" decoding="async" />
+        <Image src={logoOrganicosImg} alt="Orgánicos certificados" width={100} height={100} class="h-16 md:h-20 w-auto object-contain" loading="lazy" decoding="async" />
+        <Image src={usdaSymbolImg} alt="USDA Organic" width={100} height={100} class="h-16 md:h-20 w-auto object-contain" loading="lazy" decoding="async" />
       </div>
     </div>
 

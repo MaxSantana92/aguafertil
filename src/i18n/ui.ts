@@ -35,6 +35,7 @@ export const ui = {
     'products.technology_label': 'Tecnología',
     'products.brands_title': 'Marcas que Distribuimos',
     'products.brands_aria': 'Marcas en movimiento continuo',
+    'products.organic_certifications': 'Trabajamos con productos Orgánicos Certificados con normas para la Unión Europea, EEUU y Japón',
     'products.cta_title': '¡Juntos hacemos crecer la tierra con innovación!',
     'products.cta_description':
       'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel',
@@ -153,6 +154,7 @@ export const ui = {
     'products.technology_label': 'Technology',
     'products.brands_title': 'Brands We Distribute',
     'products.brands_aria': 'Brands in continuous motion',
+    'products.organic_certifications': 'We work with Certified Organic products that meet standards for the European Union, USA and Japan',
     'products.cta_title': 'Together we make the earth grow with innovation!',
     'products.cta_description':
       'Discover all the brands we distribute and take your field to the next level',
