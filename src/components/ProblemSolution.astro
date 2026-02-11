@@ -8,7 +8,12 @@ import biovitaLogo from '../assets/brands/biovita_negro_1.png';
 import microvidasLogo from '../assets/brands/logo_microvidas.png';
 import bloemenLogo from '../assets/brands/logobloemen_1.svg';
 import simbiosLogo from '../assets/brands/simbios.png';
-import backgroundPattern from '../assets/background.svg';
+import materiaOrganicaImg from '../assets/technologies/materia_orgánica.jpeg';
+import biofertilizantesImg from '../assets/technologies/biofertilizantes.jpeg';
+import bioestimulanteFoliarImg from '../assets/technologies/bioestimulante_foliar.jpeg';
+import nanoparticulasSueloImg from '../assets/technologies/nanoparticulas_suelo.jpeg';
+import microorganismosBeneficosImg from '../assets/technologies/microorganismos_benéficos.jpeg';
+import biocontroladoresImg from '../assets/technologies/biocontroladores.jpeg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -20,7 +25,8 @@ const products = [
     description: 'Presente en forma líquida y sólida en pelet. Nuestro compost fertiliza, mejora la estructura del suelo y aumenta la retención de agua y nutrientes.',
     descriptionEn: 'Available in liquid and solid pellet form. Our compost fertilizes, improves soil structure and increases water and nutrient retention.',
     icon: '🌱',
-    color: 'from-green-500 to-emerald-600'
+    color: 'from-green-500 to-emerald-600',
+    image: materiaOrganicaImg
   },
   {
     name: 'BIOFERTILIZANTES',
@@ -28,7 +34,8 @@ const products = [
     description: 'Abonos y Fertilizantes compuestos con N - P - K y Micronutrientes con incorporación de microorganismos benéficos que mejoran la disponibilidad de nutrientes.',
     descriptionEn: 'Fertilizers and compounds with N - P - K and micronutrients with beneficial microorganisms that improve nutrient availability.',
     icon: '🧬',
-    color: 'from-blue-500 to-cyan-600'
+    color: 'from-blue-500 to-cyan-600',
+    image: biofertilizantesImg
   },
   {
     name: 'BIOESTIMULANTES FOLIARES',
@@ -36,7 +43,8 @@ const products = [
     description: 'Aminoácidos, Polifenoles y Fosfitos. Potencian el crecimiento y la resistencia al estrés de las plantas.',
     descriptionEn: 'Amino acids, polyphenols and phosphites. They enhance growth and plant stress resistance.',
     icon: '🍃',
-    color: 'from-lime-500 to-green-600'
+    color: 'from-lime-500 to-green-600',
+    image: bioestimulanteFoliarImg
   },
   {
     name: 'NANOPARTÍCULAS CORRECTORAS DE SUELOS',
@@ -44,7 +52,8 @@ const products = [
     description: 'Tecnología de vanguardia para maximizar resultados. Optimizan el pH, corrigen suelos salinos sódicos y mejoran la estructura del suelo para su máxima producción.',
     descriptionEn: 'Cutting-edge technology to maximize results. They optimize pH, correct saline-sodic soils and improve soil structure for maximum production.',
     icon: '⚗️',
-    color: 'from-purple-500 to-indigo-600'
+    color: 'from-purple-500 to-indigo-600',
+    image: nanoparticulasSueloImg
   },
   {
     name: 'MICROORGANISMOS BENÉFICOS',
@@ -52,7 +61,8 @@ const products = [
     description: 'Son el motor biológico del suelo. Transforman el alimento para las plantas. Cambian el aspecto físico y químico del suelo. Son esenciales para tu cultivo.',
     descriptionEn: 'They are the biological engine of the soil. They transform food for plants. They change the physical and chemical aspect of the soil. They are essential for your crop.',
     icon: '🦠',
-    color: 'from-teal-500 to-emerald-600'
+    color: 'from-teal-500 to-emerald-600',
+    image: microorganismosBeneficosImg
   },
   {
     name: 'BIOCONTROLADORES',
@@ -60,7 +70,8 @@ const products = [
     description: 'Hongos y bacterias que actúan como insecticidas y fungicidas naturales contra plagas y enfermedades.',
     descriptionEn: 'Fungi and bacteria that act as natural insecticides and fungicides against pests and diseases.',
     icon: '🌾',
-    color: 'from-amber-500 to-orange-600'
+    color: 'from-amber-500 to-orange-600',
+    image: biocontroladoresImg
   }
 ];
 
@@ -119,8 +130,8 @@ const brandLoop = [...brands, ...brands];
             <div class="product-card__media">
               <Image
                 class="product-card__image"
-                src={backgroundPattern}
-                alt={t('products.image_alt')}
+                src={product.image}
+                alt={lang === 'es' ? product.name : product.nameEn}
                 width={640}
                 height={360}
                 sizes="(min-width: 1024px) 320px, (min-width: 768px) 45vw, 90vw"
