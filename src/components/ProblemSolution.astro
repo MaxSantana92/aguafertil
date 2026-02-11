@@ -15,50 +15,50 @@ const t = useTranslations(lang);
 
 const products = [
   {
-    name: 'Materia Orgánica',
-    nameEn: 'Organic Matter',
-    description: 'Mejora la estructura del suelo y aumenta la retención de agua y nutrientes',
-    descriptionEn: 'Improves soil structure and increases water and nutrient retention',
+    name: 'MATERIA ORGÁNICA COMPOSTADA',
+    nameEn: 'COMPOSTED ORGANIC MATTER',
+    description: 'Presente en forma líquida y sólida en pelet. Nuestro compost fertiliza, mejora la estructura del suelo y aumenta la retención de agua y nutrientes.',
+    descriptionEn: 'Available in liquid and solid pellet form. Our compost fertilizes, improves soil structure and increases water and nutrient retention.',
     icon: '🌱',
     color: 'from-green-500 to-emerald-600'
   },
   {
-    name: 'Biofertilizantes',
-    nameEn: 'Biofertilizers',
-    description: 'Microorganismos beneficiosos que mejoran la disponibilidad de nutrientes',
-    descriptionEn: 'Beneficial microorganisms that improve nutrient availability',
+    name: 'BIOFERTILIZANTES',
+    nameEn: 'BIOFERTILIZERS',
+    description: 'Abonos y Fertilizantes compuestos con N - P - K y Micronutrientes con incorporación de microorganismos benéficos que mejoran la disponibilidad de nutrientes.',
+    descriptionEn: 'Fertilizers and compounds with N - P - K and micronutrients with beneficial microorganisms that improve nutrient availability.',
     icon: '🧬',
     color: 'from-blue-500 to-cyan-600'
   },
   {
-    name: 'Bioestimulantes Foliares',
-    nameEn: 'Foliar Biostimulants',
-    description: 'Potencian el crecimiento y la resistencia de las plantas',
-    descriptionEn: 'Enhance plant growth and resistance',
+    name: 'BIOESTIMULANTES FOLIARES',
+    nameEn: 'FOLIAR BIOSTIMULANTS',
+    description: 'Aminoácidos, Polifenoles y Fosfitos. Potencian el crecimiento y la resistencia al estrés de las plantas.',
+    descriptionEn: 'Amino acids, polyphenols and phosphites. They enhance growth and plant stress resistance.',
     icon: '🍃',
     color: 'from-lime-500 to-green-600'
   },
   {
-    name: 'Nanopartículas',
-    nameEn: 'Nanoparticles',
-    description: 'Tecnología de vanguardia para máxima absorción y eficiencia',
-    descriptionEn: 'Cutting-edge technology for maximum absorption and efficiency',
+    name: 'NANOPARTÍCULAS CORRECTORAS DE SUELOS',
+    nameEn: 'SOIL-CORRECTING NANOPARTICLES',
+    description: 'Tecnología de vanguardia para maximizar resultados. Optimizan el pH, corrigen suelos salinos sódicos y mejoran la estructura del suelo para su máxima producción.',
+    descriptionEn: 'Cutting-edge technology to maximize results. They optimize pH, correct saline-sodic soils and improve soil structure for maximum production.',
     icon: '⚗️',
     color: 'from-purple-500 to-indigo-600'
   },
   {
-    name: 'Microorganismos',
-    nameEn: 'Microorganisms',
-    description: 'Mejoran la salud del suelo y las plantas de manera natural',
-    descriptionEn: 'Improve soil and plant health naturally',
+    name: 'MICROORGANISMOS BENÉFICOS',
+    nameEn: 'BENEFICIAL MICROORGANISMS',
+    description: 'Son el motor biológico del suelo. Transforman el alimento para las plantas. Cambian el aspecto físico y químico del suelo. Son esenciales para tu cultivo.',
+    descriptionEn: 'They are the biological engine of the soil. They transform food for plants. They change the physical and chemical aspect of the soil. They are essential for your crop.',
     icon: '🦠',
     color: 'from-teal-500 to-emerald-600'
   },
   {
-    name: 'Correctores de Suelo',
-    nameEn: 'Soil Correctors',
-    description: 'Optimizan el pH y la estructura del suelo para mejor producción',
-    descriptionEn: 'Optimize pH and soil structure for better production',
+    name: 'BIOCONTROLADORES',
+    nameEn: 'BIOCONTROLLERS',
+    description: 'Hongos y bacterias que actúan como insecticidas y fungicidas naturales contra plagas y enfermedades.',
+    descriptionEn: 'Fungi and bacteria that act as natural insecticides and fungicides against pests and diseases.',
     icon: '🌾',
     color: 'from-amber-500 to-orange-600'
   }
@@ -68,6 +68,7 @@ type Brand = {
   name: string;
   logo: ImageMetadata;
   theme?: 'dark';
+  labelAbove?: string;
 };
 
 const brands: Brand[] = [
@@ -92,6 +93,11 @@ const brands: Brand[] = [
     name: 'Bloemen',
     logo: bloemenLogo
   },
+  {
+    name: 'Simbios',
+    logo: simbiosLogo,
+    labelAbove: t('products.technology_label')
+  }
 ];
 
 const brandLoop = [...brands, ...brands];
@@ -146,10 +152,15 @@ const brandLoop = [...brands, ...brands];
             const isDark = brand.theme === 'dark';
             return (
               <div
-                class="brand-logo brand-item flex items-center justify-center p-4 transition-all duration-300 transform hover:scale-105"
+                class="brand-logo brand-item flex flex-col items-center justify-center p-4 transition-all duration-300 transform hover:scale-105"
                 aria-hidden={index >= brands.length}
               >
                 <div class={`brand-card text-center ${isDark ? 'brand-card--dark' : ''}`}>
+                  {brand.labelAbove && (
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                      {brand.labelAbove}
+                    </p>
+                  )}
                   <div class={`brand-logo-box ${isDark ? 'brand-logo-box--dark' : ''}`}>
                     <Image
                       class="brand-logo-image"
@@ -168,14 +179,6 @@ const brandLoop = [...brands, ...brands];
           })}
         </div>
       </div>
-      <div class="mt-12 pt-8 border-t border-gray-100 text-center">
-        <p class="text-2xl md:text-3xl font-bold text-gray-400 mb-4">
-          {t('products.subtitle')}
-        </p>
-        <div class="flex justify-center mb-2">
-          <Image src={simbiosLogo} alt="Simbios" class="h-24 w-auto object-contain" />
-        </div>
-      </div>
     </div>
 
     <div class="mt-10 rounded-3xl p-8 md:p-12 text-white text-center shadow-2xl relative overflow-hidden theme-institutional">
@@ -184,19 +187,12 @@ const brandLoop = [...brands, ...brands];
         <h3 class="text-3xl md:text-4xl font-bold mb-4">
           {t('products.cta_title')}
         </h3>
-        <p class="text-xl mb-8 text-white/90">
+        <p class="text-xl mb-4 text-white/90">
           {t('products.cta_description')}
         </p>
-        <a 
-          target="_blank"
-          href={"https://drive.google.com/file/d/1drPotvc0ht0EIL_yqxW1jDcdf_9t428w/view?usp=sharing"} 
-          class="inline-flex items-center justify-center bg-white/10 backdrop-blur-md text-white border-2 border-white/50 px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all"
-        >
-          {t('products.catalog_button')}
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
+        <p class="text-lg text-white/80">
+          {t('products.cta_catalog_hint')}
+        </p>
       </div>
     </div>
   </div>

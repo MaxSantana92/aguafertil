@@ -32,12 +32,13 @@ export const ui = {
     'products.title': 'Nuestras Tecnologías',
     'products.subtitle': 'Distribuidor Oficial',
     'products.image_alt': 'Imagen de tecnología agrícola',
+    'products.technology_label': 'Tecnología',
     'products.brands_title': 'Marcas que Distribuimos',
     'products.brands_aria': 'Marcas en movimiento continuo',
     'products.cta_title': '¡Juntos hacemos crecer la tierra con innovación!',
     'products.cta_description':
       'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel',
-    'products.catalog_button': 'Ver nuestro catálogo',
+    'products.cta_catalog_hint': 'Completa el formulario de contacto y accedé a nuestro catálogo',
 
     'benefits.title': 'Beneficios de Trabajar con Nosotros',
     'benefits.1.title': 'Asesoramiento Profesional',
@@ -149,12 +150,13 @@ export const ui = {
     'products.title': 'Official Distributor',
     'products.subtitle': 'Distributor Official',
     'products.image_alt': 'Agricultural technology image',
+    'products.technology_label': 'Technology',
     'products.brands_title': 'Brands We Distribute',
     'products.brands_aria': 'Brands in continuous motion',
     'products.cta_title': 'Together we make the earth grow with innovation!',
     'products.cta_description':
       'Discover all the brands we distribute and take your field to the next level',
-    'products.catalog_button': 'View our catalog',
+    'products.cta_catalog_hint': 'Complete the contact form to access our catalog',
 
     'benefits.title': 'Benefits of Working with Us',
     'benefits.1.title': 'Professional Consulting',
