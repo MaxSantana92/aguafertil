@@ -213,12 +213,16 @@ const brandLoop = [...brands, ...brands];
         <h3 class="text-3xl md:text-4xl font-bold mb-4">
           {t('products.cta_title')}
         </h3>
-        <p class="text-xl mb-4 text-white/90 text-gray-900 font-medium">
+        <p class="text-xl mb-4 text-white font-medium">
           {t('products.cta_description')}
         </p>
-        <p class="text-lg text-white/80 text-gray-900 font-medium">
-          {t('products.cta_catalog_hint')}
-        </p>
+        <a
+          id="products-catalog-cta"
+          href="#contacto"
+          class="mt-6 inline-flex items-center justify-center rounded-full border-2 border-white/70 bg-white/10 px-10 py-4 text-2xl font-semibold text-white backdrop-blur-xs transition-all duration-300 hover:scale-105 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+        >
+          {t('products.cta_catalog_button')}
+        </a>
       </div>
     </div>
   </div>
@@ -501,4 +505,19 @@ const brandLoop = [...brands, ...brands];
       start();
     });
   }
+
+  const productsCatalogCta = document.getElementById('products-catalog-cta');
+
+  productsCatalogCta?.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const contactSection = document.getElementById('contacto');
+    const focusContactName = () => {
+      const firstInput = document.getElementById('name') as HTMLInputElement | null;
+      firstInput?.focus({ preventScroll: true });
+    };
+
+    contactSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.setTimeout(focusContactName, 550);
+  });
 </script>

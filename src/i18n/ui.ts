@@ -40,7 +40,7 @@ export const ui = {
     'products.cta_title': '¡Juntos hacemos crecer la tierra con innovación!',
     'products.cta_description':
       'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel',
-    'products.cta_catalog_hint': 'Completa el formulario de contacto y accedé a nuestro catálogo',
+    'products.cta_catalog_button': 'Solicitar Catálogo',
 
     'benefits.title': 'Beneficios de Trabajar con Nosotros',
     'benefits.1.title': 'Asesoramiento Profesional',
@@ -160,7 +160,7 @@ export const ui = {
     'products.cta_title': 'Together we make the earth grow with innovation!',
     'products.cta_description':
       'Discover all the brands we distribute and take your field to the next level',
-    'products.cta_catalog_hint': 'Complete the contact form to access our catalog',
+    'products.cta_catalog_button': 'Request Catalog',
 
     'benefits.title': 'Benefits of Working with Us',
     'benefits.1.title': 'Professional Consulting',
