@@ -9,7 +9,7 @@ const t = useTranslations(lang);
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('location.title')}</h2>
-      <p class="text-xl text-gray-600">
+      <p class="text-xl text-gray-600 text-gray-900 font-medium">
         {t('location.subtitle')}
       </p>
     </div>
@@ -37,7 +37,7 @@ const t = useTranslations(lang);
             </svg>
           </div>
           <h3 class="font-bold text-gray-900 mb-2">{t('location.schedule_label')}</h3>
-          <p class="text-gray-600 text-sm">
+          <p class="text-gray-600 text-sm text-gray-900 font-medium">
             {t('location.schedule_days')}<br />
             9:00 - 18:00 hs
           </p>
@@ -50,7 +50,7 @@ const t = useTranslations(lang);
             </svg>
           </div>
           <h3 class="font-bold text-gray-900 mb-2">{t('location.phone_label')}</h3>
-          <p class="text-gray-600 text-sm group-hover:text-cyan-600 transition-colors">+54 (264) 444-7953</p>
+          <p class="text-gray-600 text-sm group-hover:text-cyan-600 transition-colors text-gray-900 font-medium">+54 (264) 444-7953</p>
         </a>
 
         <button id="email-card" class="block w-full bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all hover:scale-105 duration-300 cursor-pointer group relative">
@@ -60,7 +60,7 @@ const t = useTranslations(lang);
             </svg>
           </div>
           <h3 class="font-bold text-gray-900 mb-2">{t('location.email_label')}</h3>
-          <p class="text-gray-600 text-sm group-hover:text-lime-600 transition-colors">aguafertilventas@gmail.com</p>
+          <p class="text-gray-600 text-sm group-hover:text-lime-600 transition-colors text-gray-900 font-medium">aguafertilventas@gmail.com</p>
           
           <div id="copy-tooltip" class="absolute top-4 right-4 bg-gray-900 text-white text-xs py-1 px-3 rounded-full opacity-0 transform translate-y-2 transition-all duration-300 pointer-events-none">
             {lang === 'es' ? 'Copiado!' : 'Copied!'}

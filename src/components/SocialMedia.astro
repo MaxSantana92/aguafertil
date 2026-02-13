@@ -41,7 +41,7 @@ const socialLinks = [
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('social.title')}</h2>
-      <p class="text-xl text-gray-600">{t('social.subtitle')}</p>
+      <p class="text-xl text-gray-600 text-gray-900 font-medium">{t('social.subtitle')}</p>
     </div>
 
     <div class="flex flex-col justify-center items-center mb-12">
@@ -68,7 +68,7 @@ const socialLinks = [
                     <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none rounded-lg mask-play"></div>
                 </div>
                 <h3 class="text-2xl font-bold mb-2">Testimonio</h3>
-                <p class="text-white/90 text-center text-sm">{t('social.video_caption')}</p>
+                <p class="text-white/90 text-center text-sm text-gray-900 font-medium">{t('social.video_caption')}</p>
             </div>
         </div>
 
@@ -116,7 +116,7 @@ const socialLinks = [
               )}
             </div>
             <h3 class="text-2xl font-bold mb-2">{social.name}</h3>
-            <p class="text-white/90">{lang === 'es' ? social.description : social.descriptionEn}</p>
+            <p class="text-white/90 text-gray-900 font-medium">{lang === 'es' ? social.description : social.descriptionEn}</p>
             <div class="mt-4 flex items-center text-sm font-semibold">
               <span>{t('social.visit')}</span>
               <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
