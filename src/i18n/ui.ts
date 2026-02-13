@@ -25,7 +25,7 @@ export const ui = {
     'hero.slide3.alt': 'Vista aérea de un campo agrícola moderno y tecnificado',
     'hero.slide4.alt': 'Brote verde creciendo en suelo fértil, simbolizando sostenibilidad',
 
-    'about.title': 'El Futuro del Agro es Bio-Inteligente',
+    'about.title': 'El Futuro del Agro es\nBiointeligente',
     'about.subtitle': '¿Buscas optimizar tu producción agrícola con tecnología sustentable?',
     'about.description':
       'Somos una empresa que se especializa en ofrecer productos para el agro basados en la sustentabilidad, medio ambiente y tecnología. Acompañamos a los agricultores a impulsar prácticas sustentables en el largo plazo. Estas contribuyen con el cuidado del medio ambiente y la optimización de los recursos de los cuales depende, satisfaciendo las necesidades básicas de alimentos, siendo económicamente viable y mejorando la calidad de vida del productor y la sociedad. En Aguafértil utilizamos las nuevas tecnologías, bio y nanopartículas aplicadas al agro. Nuestra gran paleta de productos se basa en: materia orgánica, biofertilizantes, orgánicos certificados, bioestimulantes foliares, microorganismos, funguicidas, fertilizantes minerales en nanopartículas y correctores de suelo.',
@@ -35,7 +35,8 @@ export const ui = {
     'products.technology_label': 'Tecnología',
     'products.brands_title': 'Marcas que Distribuimos',
     'products.brands_aria': 'Marcas en movimiento continuo',
-    'products.organic_certifications': 'Trabajamos con productos Orgánicos Certificados con normas para la Unión Europea, EEUU y Japón',
+    'products.organic_certifications':
+      'Trabajamos con productos Orgánicos Certificados con normas para la Unión Europea, EEUU y Japón',
     'products.cta_title': '¡Juntos hacemos crecer la tierra con innovación!',
     'products.cta_description':
       'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel',
@@ -142,7 +143,7 @@ export const ui = {
     'hero.slide3.alt': 'Aerial view of a modern and technified agricultural field',
     'hero.slide4.alt': 'Green sprout growing in fertile soil, symbolizing sustainability',
 
-    'about.title': 'The Future of Agriculture is Bio-Intelligent',
+    'about.title': 'The Future of Agriculture is\nBiointelligent',
     'about.subtitle':
       'Looking to optimize your agricultural production with sustainable technology?',
     'about.description':
@@ -154,7 +155,8 @@ export const ui = {
     'products.technology_label': 'Technology',
     'products.brands_title': 'Brands We Distribute',
     'products.brands_aria': 'Brands in continuous motion',
-    'products.organic_certifications': 'We work with Certified Organic products that meet standards for the European Union, USA and Japan',
+    'products.organic_certifications':
+      'We work with Certified Organic products that meet standards for the European Union, USA and Japan',
     'products.cta_title': 'Together we make the earth grow with innovation!',
     'products.cta_description':
       'Discover all the brands we distribute and take your field to the next level',
