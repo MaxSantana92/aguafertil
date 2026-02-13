@@ -390,24 +390,17 @@ const brandLoop = [...brands, ...brands];
     }
   }
 
-  /* Usuarios con "Reducir movimiento" activado: mostrar scroll horizontal en vez de animación */
+  .brand-marquee.js-marquee-active .brand-track {
+    animation: none !important;
+  }
+
+  /* Usuarios con "Reducir movimiento": se mantiene slide via JS sin scroll manual */
   @media (prefers-reduced-motion: reduce) {
     .brand-marquee {
-      overflow-x: auto;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-    }
-    .brand-marquee::-webkit-scrollbar {
-      height: 6px;
-    }
-    .brand-marquee::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 3px;
+      overflow: hidden;
     }
     .brand-track {
       animation: none;
-      /* Una sola copia de marcas para scroll manual */
     }
   }
 
@@ -432,4 +425,80 @@ const brandLoop = [...brands, ...brands];
   document.querySelectorAll('.product-card').forEach((card) => {
     observer.observe(card);
   });
+
+  const marquee = document.querySelector('.brand-marquee');
+  const track = marquee?.querySelector('.brand-track');
+  const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (marquee instanceof HTMLElement && track instanceof HTMLElement && reduceMotionQuery.matches) {
+    marquee.classList.add('js-marquee-active');
+
+    let loopWidth = 0;
+    let speedPxPerSecond = 0;
+    let offsetX = 0;
+    let rafId: number | null = null;
+    let lastTime = 0;
+
+    const refreshMetrics = () => {
+      loopWidth = track.scrollWidth / 2;
+      speedPxPerSecond = loopWidth > 0 ? loopWidth / 28 : 0;
+    };
+
+    const tick = (time: number) => {
+      if (lastTime === 0) {
+        lastTime = time;
+      }
+
+      const deltaSeconds = (time - lastTime) / 1000;
+      lastTime = time;
+
+      if (loopWidth > 0 && speedPxPerSecond > 0) {
+        offsetX -= speedPxPerSecond * deltaSeconds;
+        while (Math.abs(offsetX) >= loopWidth) {
+          offsetX += loopWidth;
+        }
+        track.style.transform = `translate3d(${offsetX}px, 0, 0)`;
+      }
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const start = () => {
+      if (rafId !== null) {
+        return;
+      }
+      lastTime = 0;
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const stop = () => {
+      if (rafId === null) {
+        return;
+      }
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    };
+
+    refreshMetrics();
+    start();
+
+    window.addEventListener('resize', refreshMetrics, { passive: true });
+    window.addEventListener('load', refreshMetrics);
+
+    if ('ResizeObserver' in window) {
+      const resizeObserver = new ResizeObserver(() => {
+        refreshMetrics();
+      });
+      resizeObserver.observe(track);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stop();
+        return;
+      }
+      refreshMetrics();
+      start();
+    });
+  }
 </script>
