@@ -54,12 +54,27 @@ const { title = "Agua Fertil | Nutrición Vegetal Biológica", description = "L�
         <div class="text-center">
             <h4 class="font-bold text-gray-800 text-sm mb-3">{t('whatsapp.title')}</h4>
             <div class="bg-white p-2 rounded-xl shadow-inner inline-block mb-3">
+				<div
+					id="whatsapp-qr-loading"
+					class="w-32 h-32 flex items-center justify-center text-emerald-700"
+					role="status"
+					aria-live="polite"
+				>
+					<svg class="w-8 h-8 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+						<path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+					</svg>
+				</div>
                 <img 
+					id="whatsapp-qr-image"
                     src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/542644447953" 
                     alt="WhatsApp QR" 
-                    class="w-32 h-32" 
-                    loading="lazy"
+                    class="w-32 h-32 hidden" 
+                    loading="eager"
                 />
+				<p id="whatsapp-qr-error" class="hidden w-32 text-xs text-red-600 text-center px-2">
+					No se pudo cargar el QR
+				</p>
             </div>
 			<Button
 				href="https://wa.me/+542644447953"  
@@ -106,11 +121,45 @@ const { title = "Agua Fertil | Nutrición Vegetal Biológica", description = "L�
 <script>
 	const whatsappFab = document.getElementById('whatsapp-fab');
 	const whatsappTooltip = document.getElementById('whatsapp-tooltip');
+	const whatsappQrImage = document.getElementById('whatsapp-qr-image') as HTMLImageElement | null;
+	const whatsappQrLoading = document.getElementById('whatsapp-qr-loading');
+	const whatsappQrError = document.getElementById('whatsapp-qr-error');
+
+	const showWhatsappQr = () => {
+		whatsappQrLoading?.classList.add('hidden');
+		whatsappQrError?.classList.add('hidden');
+		whatsappQrImage?.classList.remove('hidden');
+	};
+
+	const showWhatsappQrError = () => {
+		whatsappQrLoading?.classList.add('hidden');
+		whatsappQrImage?.classList.add('hidden');
+		whatsappQrError?.classList.remove('hidden');
+	};
+
+	const resetWhatsappQrLoading = () => {
+		if (!whatsappQrImage) return;
+		if (whatsappQrImage.complete) {
+			if (whatsappQrImage.naturalWidth > 0) {
+				showWhatsappQr();
+			} else {
+				showWhatsappQrError();
+			}
+			return;
+		}
+		whatsappQrImage.classList.add('hidden');
+		whatsappQrError?.classList.add('hidden');
+		whatsappQrLoading?.classList.remove('hidden');
+	};
+
+	whatsappQrImage?.addEventListener('load', showWhatsappQr);
+	whatsappQrImage?.addEventListener('error', showWhatsappQrError);
 
 	whatsappFab?.addEventListener('click', () => {
 		if (whatsappTooltip) {
 			const isHidden = whatsappTooltip.classList.contains('hidden');
 			if (isHidden) {
+				resetWhatsappQrLoading();
 				whatsappTooltip.classList.remove('hidden');
 				// Small timeout to allow transition
 				setTimeout(() => {
