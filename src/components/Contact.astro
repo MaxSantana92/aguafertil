@@ -24,7 +24,7 @@ const t = useTranslations(lang);
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-      <div class="space-y-8">
+      <div class="space-y-8 order-2 lg:order-1">
         <div class="bg-gradient-to-br from-emerald-50 to-lime-50 rounded-2xl p-8">
           <h3 class="text-2xl font-bold text-gray-900 mb-6">
             {t('contact.info_title')}
@@ -107,7 +107,7 @@ const t = useTranslations(lang);
         </div>
       </div>
 
-      <div>
+      <div class="order-1 lg:order-2">
         <form id="contact-form" class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg space-y-6">
           <div>
             <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">{t('contact.name')}</label>
@@ -205,6 +205,28 @@ const t = useTranslations(lang);
 
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const formMessage = document.getElementById('form-message') as HTMLElement;
+
+  const formInputs = form?.querySelectorAll('input, textarea') ?? [];
+  
+  formInputs.forEach((input) => {
+    input.addEventListener('focus', () => {
+      if (window.innerWidth < 1024) {
+        setTimeout(() => {
+          const inputElement = input as HTMLElement;
+          const navbar = document.getElementById('navbar');
+          const navHeight = navbar?.getBoundingClientRect().height ?? 0;
+          const rect = inputElement.getBoundingClientRect();
+          const offsetTop = window.pageYOffset + rect.top;
+          const scrollTarget = offsetTop - navHeight - 80;
+          
+          window.scrollTo({
+            top: scrollTarget,
+            behavior: 'smooth'
+          });
+        }, 300);
+      }
+    });
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();

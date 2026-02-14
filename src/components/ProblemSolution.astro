@@ -508,16 +508,12 @@ const brandLoop = [...brands, ...brands];
 
   const productsCatalogCta = document.getElementById('products-catalog-cta');
 
-  productsCatalogCta?.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    const contactSection = document.getElementById('contacto');
+  productsCatalogCta?.addEventListener('click', () => {
     const focusContactName = () => {
       const firstInput = document.getElementById('name') as HTMLInputElement | null;
       firstInput?.focus({ preventScroll: true });
     };
 
-    contactSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    window.setTimeout(focusContactName, 550);
+    window.setTimeout(focusContactName, 800);
   });
 </script>

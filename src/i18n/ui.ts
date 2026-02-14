@@ -57,7 +57,11 @@ export const ui = {
 
     'social.title': 'Conocé los testimonios en nuestras redes sociales',
     'social.subtitle': 'Síguenos en Instagram, YouTube y Spotify',
-    'social.video_caption': 'Cultivo de Olivos - Chilecito La Rioja',
+    'social.video_title': 'Testimonio',
+    'social.video_1_caption': 'Cultivo de Olivos - Chilecito La Rioja',
+    'social.video_2_caption': 'Producción agrícola sustentable - San Juan',
+    'social.video_3_caption': 'Tecnología aplicada al cultivo - La Rioja',
+    'social.swipe_hint': 'Deslizá para ver más testimonios',
     'social.visit': 'Visitar',
     'social.view_profile': 'Ver perfil',
 
@@ -177,7 +181,11 @@ export const ui = {
 
     'social.title': 'See the testimonials on our social media',
     'social.subtitle': 'Follow us on Instagram, YouTube and Spotify',
-    'social.video_caption': 'Olive Cultivation - Chilecito La Rioja',
+    'social.video_title': 'Testimonial',
+    'social.video_1_caption': 'Olive Cultivation - Chilecito, La Rioja',
+    'social.video_2_caption': 'Sustainable agricultural production - San Juan',
+    'social.video_3_caption': 'Technology applied to crops - La Rioja',
+    'social.swipe_hint': 'Swipe to see more testimonials',
     'social.visit': 'Visit',
     'social.view_profile': 'View profile',
 

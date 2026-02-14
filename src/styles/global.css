@@ -1,34 +1,29 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-verde-agua: #8DC63F;
-  --color-azul-brillante: #40B6D9;
-  --color-azul-oscuro: #2B5882;
-  --color-fondo: #F9F9F9;
-  --color-texto-oscuro: #4D4D4D;
+  --color-verde-agua: #8dc63f;
+  --color-azul-brillante: #40b6d9;
+  --color-azul-oscuro: #2b5882;
+  --color-fondo: #f9f9f9;
+  --color-texto-oscuro: #4d4d4d;
 }
 
 /* Tema por defecto (Verde Agua) */
 :root {
-  --theme-primary: #8DC63F;
+  --theme-primary: #8dc63f;
   --theme-primary-dark: #7ab135;
   --theme-primary-light: #9fd754;
-  --theme-accent: #40B6D9;
-  --theme-gradient-from: #8DC63F;
+  --theme-accent: #40b6d9;
+  --theme-gradient-from: #8dc63f;
   --theme-gradient-to: #7ab135;
   --theme-shadow: rgba(141, 198, 63, 0.5);
-  --theme-gradient-institutional: linear-gradient(135deg, #8DC63F, #7ab135);
-  
-  --nav-offset: 10px;
-  
-  --color-fondo: #F9F9F9;
-  --color-texto-oscuro: #4D4D4D;
-  --font-main: 'Montserrat', sans-serif;
-}
+  --theme-gradient-institutional: linear-gradient(135deg, #8dc63f, #7ab135);
 
-html {
-  /* Compensación para el header fijo al navegar con anclas */
-  scroll-padding-top: var(--nav-offset);
+  --nav-offset: 96px;
+
+  --color-fondo: #f9f9f9;
+  --color-texto-oscuro: #4d4d4d;
+  --font-main: 'Montserrat', sans-serif;
 }
 
 section[id] {
@@ -42,40 +37,39 @@ body {
 }
 
 .lazy-section {
-	opacity: 0;
-	transform: translateY(24px) scale(0.98);
-	filter: blur(6px);
-	transition:
-		opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-		transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
-		filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
-	transition-delay: var(--reveal-delay, 0ms);
-	will-change: opacity, transform, filter;
-	content-visibility: auto;
-	min-height: var(--min-height, auto);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  filter: blur(6px);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+  content-visibility: auto;
+  min-height: var(--min-height, auto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .lazy-section.is-visible {
-	opacity: 1;
-	transform: translateY(0) scale(1);
-	filter: blur(0);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.lazy-section {
-		opacity: 1;
-		transform: none;
-		filter: none;
-		transition: none;
-	}
+  .lazy-section {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
 }
 
 /* Clases auxiliares de tema */
 .theme-institutional {
-  background: var(--theme-gradient-institutional, linear-gradient(135deg, #8DC63F, #7ab135));
+  background: var(--theme-gradient-institutional, linear-gradient(135deg, #8dc63f, #7ab135));
 }
-

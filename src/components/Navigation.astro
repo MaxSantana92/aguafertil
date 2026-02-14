@@ -28,18 +28,18 @@ const translatePath = useTranslatedPath(lang);
         </div>
       </a>
 
-      <button class="lg:hidden text-gray-700" id="mobile-menu-button" aria-label="Menu">
+      <button class="lg:hidden text-gray-700" id="mobile-menu-button" aria-label="Menu" aria-expanded="false">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
 
       <div class="hidden lg:flex items-center space-x-8">
-        <a href={translatePath('#inicio')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
-        <a href={translatePath('#quienes-somos')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
-        <a href={translatePath('#tecnologias')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
-        <a href={translatePath('#beneficios')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
-        <a href={translatePath('#testimonios')} class="nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
+        <a href={translatePath('#inicio')} class="nav-link desktop-nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
+        <a href={translatePath('#quienes-somos')} class="nav-link desktop-nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
+        <a href={translatePath('#tecnologias')} class="nav-link desktop-nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
+        <a href={translatePath('#beneficios')} class="nav-link desktop-nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
+        <a href={translatePath('#testimonios')} class="nav-link desktop-nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
         
         <div class="flex items-center gap-3">
 
@@ -57,39 +57,142 @@ const translatePath = useTranslatedPath(lang);
       </div>
     </div>
 
-    <div class="hidden lg:hidden mt-4 pb-4 space-y-3" id="mobile-menu">
-      <a href={translatePath('#inicio')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
-      <a href={translatePath('#quienes-somos')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
-      <a href={translatePath('#tecnologias')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
-      <a href={translatePath('#beneficios')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
-      <a href={translatePath('#testimonios')} class="nav-link block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
+    <div class="hidden lg:hidden mt-4 pb-4 space-y-4" id="mobile-menu">
+      <a href={translatePath('#inicio')} class="nav-link mobile-nav-link mobile-nav-item block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
+      <a href={translatePath('#quienes-somos')} class="nav-link mobile-nav-link mobile-nav-item block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
+      <a href={translatePath('#tecnologias')} class="nav-link mobile-nav-link mobile-nav-item block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
+      <a href={translatePath('#beneficios')} class="nav-link mobile-nav-link mobile-nav-item block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.beneficios')}</a>
+      <a href={translatePath('#testimonios')} class="nav-link mobile-nav-link mobile-nav-item block text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.testimonios')}</a>
       
       <div class="flex items-center gap-3 pt-2">
 
         <Button 
           href={translatePath('#contacto')} 
           text={t('nav.contacto')} 
-          className="flex-1"
+          className="flex-1 mobile-nav-contact"
         />
       </div>
       
-      <div class="flex items-center space-x-2 pt-2">
-        <a href={translatePath('/', 'es')} class={`px-4 py-3 rounded ${lang === 'es' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>ES</a>
-        <a href={translatePath('/', 'en')} class={`px-4 py-3 rounded ${lang === 'en' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>EN</a>
+      <div class="flex items-center space-x-3 pt-2">
+        <a href={translatePath('/', 'es')} class={`mobile-lang-item ${lang === 'es' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>ES</a>
+        <a href={translatePath('/', 'en')} class={`mobile-lang-item ${lang === 'en' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>EN</a>
       </div>
     </div>
   </div>
 </nav>
 
 <script>
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenuButton = document.getElementById('mobile-menu-button') as HTMLButtonElement | null;
   const mobileMenu = document.getElementById('mobile-menu');
+  const navbar = document.getElementById('navbar');
+  const rootElement = document.documentElement;
+
+  const updateNavOffset = () => {
+    if (!navbar) return;
+    const navHeight = Math.ceil(navbar.getBoundingClientRect().height);
+    const offset = navHeight;
+    rootElement.style.setProperty('--nav-offset', `${offset}px`);
+  };
+
+  const closeMobileMenu = () => {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('hidden');
+    mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    updateNavOffset();
+  };
+
+  const toggleMobileMenu = () => {
+    if (!mobileMenu) return;
+    const willOpen = mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    mobileMenuButton?.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    updateNavOffset();
+    if (willOpen) {
+      updateActiveMobileSection();
+    }
+  };
 
   mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+    toggleMobileMenu();
   });
 
-  const navbar = document.getElementById('navbar');
+  mobileMenu?.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    const selectedItem = target.closest('a, button');
+    if (selectedItem) closeMobileMenu();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!mobileMenu || !mobileMenuButton) return;
+    if (mobileMenu.classList.contains('hidden')) return;
+    const target = event.target as Node;
+    if (!mobileMenu.contains(target) && !mobileMenuButton.contains(target)) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+      closeMobileMenu();
+    }
+    updateNavOffset();
+  });
+
+  const mobileSectionLinks = Array.from(mobileMenu?.querySelectorAll('a[href*="#"]') ?? []) as HTMLAnchorElement[];
+  const desktopSectionLinks = Array.from(document.querySelectorAll('.desktop-nav-link[href*="#"]')) as HTMLAnchorElement[];
+
+  const sectionEntries = mobileSectionLinks
+    .map((link) => {
+      const hash = new URL(link.href, window.location.origin).hash;
+      if (!hash) return null;
+      const section = document.querySelector(hash);
+      if (!section) return null;
+      return { link, section };
+    })
+    .filter((entry): entry is { link: HTMLAnchorElement; section: Element } => Boolean(entry));
+
+  const setActiveMobileLink = (activeLink: HTMLAnchorElement) => {
+    mobileSectionLinks.forEach((link) => {
+      const isActive = link === activeLink;
+      if (link.classList.contains('mobile-nav-contact')) {
+        link.classList.toggle('mobile-nav-contact-active', isActive);
+      } else {
+        link.classList.toggle('mobile-nav-link-active', isActive);
+      }
+    });
+  };
+
+  const setActiveDesktopLink = (activeHash: string) => {
+    desktopSectionLinks.forEach((link) => {
+      const linkHash = new URL(link.href, window.location.origin).hash;
+      link.classList.toggle('desktop-nav-link-active', linkHash === activeHash);
+    });
+  };
+
+  const updateActiveMobileSection = () => {
+    if (sectionEntries.length === 0) return;
+    const navHeight = navbar?.getBoundingClientRect().height ?? 0;
+    const activationLine = navHeight + 32;
+
+    let activeEntry = sectionEntries[0];
+    sectionEntries.forEach((entry) => {
+      const sectionTop = (entry.section as HTMLElement).getBoundingClientRect().top;
+      if (sectionTop <= activationLine) {
+        activeEntry = entry;
+      }
+    });
+
+    setActiveMobileLink(activeEntry.link);
+    const activeHash = new URL(activeEntry.link.href, window.location.origin).hash;
+    setActiveDesktopLink(activeHash);
+  };
+
+  updateNavOffset();
+  updateActiveMobileSection();
+  window.addEventListener('scroll', updateActiveMobileSection, { passive: true });
+  window.addEventListener('resize', updateActiveMobileSection);
+  window.addEventListener('hashchange', updateActiveMobileSection);
+
   const heroSection = document.getElementById('inicio');
 
   if (heroSection && navbar) {
@@ -146,5 +249,47 @@ const translatePath = useTranslatedPath(lang);
 
   #navbar.nav-on-hero #mobile-menu-button {
     color: #ffffff;
+  }
+
+  #mobile-menu .mobile-nav-item {
+    font-size: 1.125rem;
+    line-height: 1.35;
+    padding: 0.75rem 0.6rem;
+    border-radius: 0.75rem;
+  }
+
+  #mobile-menu .mobile-lang-item {
+    font-size: 1.125rem;
+    line-height: 1.2;
+    padding: 0.8rem 1rem;
+    border-radius: 0.75rem;
+  }
+
+  #mobile-menu .boton-agua-fertil.mobile-nav-contact {
+    font-size: 1.125rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+
+  #navbar #mobile-menu .mobile-nav-link.mobile-nav-link-active {
+    color: #1f2937;
+    font-weight: 700;
+    text-decoration-line: underline;
+    text-decoration-color: #40b6d9;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 7px;
+  }
+
+  #navbar #mobile-menu .boton-agua-fertil.mobile-nav-contact.mobile-nav-contact-active {
+    box-shadow:
+      0 0 0 3px rgba(16, 185, 129, 0.35),
+      inset 0 -4px 0 #40b6d9;
+  }
+
+  #navbar .desktop-nav-link.desktop-nav-link-active {
+    text-decoration-line: underline;
+    text-decoration-color: #40b6d9;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
   }
 </style>

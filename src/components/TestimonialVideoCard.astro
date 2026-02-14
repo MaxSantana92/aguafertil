@@ -1,0 +1,126 @@
+---
+import Image from 'astro/components/Image.astro';
+import logoVertical from '../assets/iso_logo_blanco_vertical.png';
+
+interface Props {
+  title: string;
+  caption: string;
+  videoSrc: string;
+}
+
+const { title, caption, videoSrc } = Astro.props;
+---
+
+<div
+  data-testimonial-card
+  class="testimonial-video-card relative bg-linear-to-br from-blue-500 to-cyan-600 rounded-2xl shadow-lg w-full overflow-hidden transition-all duration-300 ease-in-out group hover:shadow-xl hover:scale-[1.02]"
+>
+  <button
+    type="button"
+    data-testimonial-preview
+    aria-label={`Reproducir ${title}: ${caption}`}
+    class="relative min-h-[620px] w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-600"
+  >
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+      <Image src={logoVertical} alt="Background" class="w-full h-full object-cover" />
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center justify-center text-center text-white px-6 py-6 min-h-[620px]">
+      <div class="mb-4 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+        <svg class="w-20 h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M18.2403 10.45L7.97344 4.09038C6.68087 3.28965 5 4.21919 5 5.73976V18.2602C5 19.7808 6.68087 20.7104 7.97344 19.9096L18.2403 13.55C19.4678 12.7895 19.4678 11.2105 18.2403 10.45Z"
+            class="fill-white/30 stroke-white/80"
+            stroke-width="1.5"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <div class="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent pointer-events-none rounded-lg mask-play"></div>
+      </div>
+      <h3 class="text-2xl font-bold mb-2">{title}</h3>
+      <p class="text-white/90 text-lg font-bold">{caption}</p>
+    </div>
+  </button>
+
+  <div data-testimonial-player class="hidden relative z-10 bg-black">
+    <video data-testimonial-video class="w-full block bg-black aspect-9/16 object-contain" controls playsinline poster={logoVertical.src}>
+      <source src={videoSrc} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<script>
+  function collapseTestimonialCard(card: HTMLElement) {
+    const preview = card.querySelector<HTMLElement>('[data-testimonial-preview]');
+    const player = card.querySelector<HTMLElement>('[data-testimonial-player]');
+    const video = card.querySelector<HTMLVideoElement>('[data-testimonial-video]');
+
+    if (!preview || !player || !video) {
+      return;
+    }
+
+    video.pause();
+    preview.classList.remove('hidden');
+    player.classList.add('hidden');
+    card.classList.remove('is-player-active');
+  }
+
+  function pauseOtherTestimonials(activeVideo: HTMLVideoElement) {
+    document.querySelectorAll<HTMLElement>('[data-testimonial-card]').forEach((card) => {
+      const video = card.querySelector<HTMLVideoElement>('[data-testimonial-video]');
+      if (!video || video === activeVideo) {
+        return;
+      }
+
+      collapseTestimonialCard(card);
+    });
+  }
+
+  function setupTestimonialVideoCards() {
+    document.querySelectorAll<HTMLElement>('[data-testimonial-card]').forEach((card) => {
+      if (card.dataset.initialized) {
+        return;
+      }
+
+      const preview = card.querySelector<HTMLElement>('[data-testimonial-preview]');
+      const player = card.querySelector<HTMLElement>('[data-testimonial-player]');
+      const video = card.querySelector<HTMLVideoElement>('[data-testimonial-video]');
+      if (!preview || !player || !video) {
+        return;
+      }
+
+      card.dataset.initialized = 'true';
+
+      preview.addEventListener('click', () => {
+        if (!player.classList.contains('hidden')) {
+          return;
+        }
+
+        card.classList.add('is-player-active');
+        preview.classList.add('hidden');
+        player.classList.remove('hidden');
+        video.play().catch(() => {
+          // Play can fail if autoplay is blocked by the browser.
+        });
+      });
+
+      video.addEventListener('play', () => {
+        pauseOtherTestimonials(video);
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', setupTestimonialVideoCards);
+  document.addEventListener('DOMContentLoaded', setupTestimonialVideoCards);
+</script>
+
+<style>
+  .testimonial-video-card {
+    max-width: 340px;
+  }
+
+  .testimonial-video-card.is-player-active {
+    background: #000;
+  }
+</style>
