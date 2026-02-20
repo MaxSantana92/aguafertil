@@ -14,9 +14,10 @@ const t = useTranslations(lang);
         <Image 
           src={isoLogo}
           alt="Agua Fertil"
-          width={64}
-          height={64}
-          class="w-16 h-16 opacity-80"
+          width={128}
+          height={128}
+          class="w-24 h-24 md:w-32 md:h-32 animate-pulse-slow"
+          loading="eager"
         />
       </div>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('benefits.title')}</h2>
@@ -85,6 +86,21 @@ const t = useTranslations(lang);
 </section>
 
 <style>
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
   .benefit-card {
     animation: fadeIn 0.8s ease-out;
   }

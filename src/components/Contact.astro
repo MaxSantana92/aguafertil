@@ -12,11 +12,12 @@ const t = useTranslations(lang);
     <div class="text-center mb-16">
       <div class="mb-6 flex justify-center">
         <Image 
-          src={isoLogo}
-          alt="Agua Fertil"
-          width={80}
-          height={80}
-          class="w-20 h-20 opacity-90"
+        src={isoLogo}
+        alt="Agua Fertil"
+        width={128}
+        height={128}
+        class="w-24 h-24 md:w-32 md:h-32 animate-pulse-slow"
+        loading="eager"
         />
       </div>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('contact.title')}</h2>
@@ -174,6 +175,21 @@ const t = useTranslations(lang);
 </section>
 
 <style>
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
   .theme-gradient {
     background: linear-gradient(to bottom right, var(--theme-gradient-from), var(--theme-gradient-to));
   }

@@ -23,6 +23,7 @@ import logoUeImg from '../assets/certifications/logo_ue.jpg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 const products = [
   {
@@ -234,7 +235,7 @@ const brandLoop = [...brands, ...brands];
         </p>
         <a
           id="products-catalog-cta"
-          href="#contacto"
+          href={translatePath('#contacto')}
           class="mt-6 inline-flex items-center justify-center rounded-full border-2 border-white/70 bg-white/10 px-10 py-4 text-2xl font-semibold text-white backdrop-blur-xs transition-all duration-300 hover:scale-105 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
         >
           {t('products.cta_catalog_button')}
@@ -566,7 +567,7 @@ const brandLoop = [...brands, ...brands];
     });
   }
 
-  const productsCatalogCta = document.getElementById('products-catalog-cta');
+  const productsCatalogCta = document.getElementById('products-catalog-cta') as HTMLAnchorElement | null;
 
   productsCatalogCta?.addEventListener('click', () => {
     const focusContactName = () => {
