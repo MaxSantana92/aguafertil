@@ -17,7 +17,7 @@ export const ui = {
 
     'hero.title': 'Biotecnología Sustentable para el Agro',
     'hero.subtitle':
-      'Acompañamos tu producción con asesoramiento profesional y soluciones innovadoras. Conocé más de nosotros.',
+      'Acompañamos tu producción con productos biológicos y soluciones innovadoras. Conocé más de nosotros.',
     'hero.cta': 'Solicitar Asesoramiento',
     'hero.cta.secondary': 'Ver Tecnologías',
     'hero.slide1.alt': 'Campo de cultivo agrícola bajo un cielo despejado',
@@ -29,6 +29,7 @@ export const ui = {
     'about.subtitle': '¿Buscas optimizar tu producción agrícola con tecnología sustentable?',
     'about.description':
       'Somos una empresa que se especializa en ofrecer productos para el agro basados en la sustentabilidad, medio ambiente y tecnología. Acompañamos a los agricultores a impulsar prácticas sustentables en el largo plazo. Estas contribuyen con el cuidado del medio ambiente y la optimización de los recursos de los cuales depende, satisfaciendo las necesidades básicas de alimentos, siendo económicamente viable y mejorando la calidad de vida del productor y la sociedad. En Aguafértil utilizamos las nuevas tecnologías, bio y nanopartículas aplicadas al agro. Nuestra gran paleta de productos se basa en: materia orgánica, biofertilizantes, orgánicos certificados, bioestimulantes foliares, microorganismos, funguicidas, fertilizantes minerales en nanopartículas y correctores de suelo.',
+    'about.final_title': '"Regeneramos tu Suelo"',
     'products.title': 'Nuestras Tecnologías',
     'products.subtitle': 'Distribuidor Oficial',
     'products.image_alt': 'Imagen de tecnología agrícola',
@@ -60,7 +61,7 @@ export const ui = {
     'social.video_title': 'Testimonio',
     'social.video_1_caption': 'Cultivo de Olivos - Chilecito La Rioja',
     'social.video_2_caption': 'Producción agrícola sustentable - San Juan',
-    'social.video_3_caption': 'Tecnología aplicada al cultivo - La Rioja',
+    'social.video_3_caption': '22 de Junio, Día Mundial del Suelo y la Tierra Fértil',
     'social.swipe_hint': 'Deslizá para ver más testimonios',
     'social.visit': 'Visitar',
     'social.view_profile': 'Ver perfil',
@@ -74,7 +75,7 @@ export const ui = {
     'contact.email': 'Email',
     'contact.phone': 'Teléfono',
     'contact.message': 'Mensaje',
-    'contact.submit': 'Enviar Consulta',
+    'contact.submit': 'Enviar Consulta / Solicitar Catálogo',
     'contact.success': 'Mensaje enviado correctamente',
     'contact.info_title': 'Información de Contacto',
     'contact.address_label': 'Dirección',
@@ -139,7 +140,7 @@ export const ui = {
 
     'hero.title': 'Sustainable Biotechnology for Agriculture',
     'hero.subtitle':
-      'We support your production with professional advice and innovative solutions. Learn more about us.',
+      'We support your production with biological products and innovative solutions. Learn more about us.',
     'hero.cta': 'Request Consultation',
     'hero.cta.secondary': 'View Technologies',
     'hero.slide1.alt': 'Agricultural crop field under a clear sky',
@@ -153,6 +154,7 @@ export const ui = {
     'about.description':
       'We are a company that specializes in offering agricultural products based on sustainability, the environment, and technology. We support farmers in promoting long-term sustainable practices. These contribute to caring for the environment and optimizing the resources on which it depends, satisfying basic food needs, being economically viable, and improving the quality of life for the producer and society. At Aguafértil, we use new technologies, bio and nanoparticles applied to agriculture. Our wide range of products is based on: organic matter, biofertilizers, certified organics, foliar biostimulants, microorganisms, fungicides, mineral fertilizers in nanoparticles, and soil correctors.',
 
+    'about.final_title': '"Regenerate your Soil"',
     'products.title': 'Official Distributor',
     'products.subtitle': 'Distributor Official',
     'products.image_alt': 'Agricultural technology image',
@@ -184,7 +186,7 @@ export const ui = {
     'social.video_title': 'Testimonial',
     'social.video_1_caption': 'Olive Cultivation - Chilecito, La Rioja',
     'social.video_2_caption': 'Sustainable agricultural production - San Juan',
-    'social.video_3_caption': 'Technology applied to crops - La Rioja',
+    'social.video_3_caption': 'June 22, World Soil Day and Fertile Earth',
     'social.swipe_hint': 'Swipe to see more testimonials',
     'social.visit': 'Visit',
     'social.view_profile': 'View profile',
@@ -198,7 +200,7 @@ export const ui = {
     'contact.email': 'Email',
     'contact.phone': 'Phone',
     'contact.message': 'Message',
-    'contact.submit': 'Send Query',
+    'contact.submit': 'Send Query / Request Catalog',
     'contact.success': 'Message sent successfully',
     'contact.info_title': 'Contact Information',
     'contact.address_label': 'Address',

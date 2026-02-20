@@ -19,15 +19,15 @@ const { title, caption, videoSrc } = Astro.props;
     type="button"
     data-testimonial-preview
     aria-label={`Reproducir ${title}: ${caption}`}
-    class="relative min-h-[620px] w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-600"
+    class="testimonial-preview-button relative w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-600"
   >
     <div class="absolute inset-0 opacity-20 pointer-events-none">
       <Image src={logoVertical} alt="Background" class="w-full h-full object-cover" />
     </div>
 
-    <div class="relative z-10 flex flex-col items-center justify-center text-center text-white px-6 py-6 min-h-[620px]">
-      <div class="mb-4 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
-        <svg class="w-20 h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="testimonial-content relative z-10 flex flex-col items-center justify-center text-center text-white">
+      <div class="testimonial-play-icon group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+        <svg class="testimonial-play-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M18.2403 10.45L7.97344 4.09038C6.68087 3.28965 5 4.21919 5 5.73976V18.2602C5 19.7808 6.68087 20.7104 7.97344 19.9096L18.2403 13.55C19.4678 12.7895 19.4678 11.2105 18.2403 10.45Z"
             class="fill-white/30 stroke-white/80"
@@ -37,8 +37,8 @@ const { title, caption, videoSrc } = Astro.props;
         </svg>
         <div class="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent pointer-events-none rounded-lg mask-play"></div>
       </div>
-      <h3 class="text-2xl font-bold mb-2">{title}</h3>
-      <p class="text-white/90 text-lg font-bold">{caption}</p>
+      <h3 class="testimonial-title">{title}</h3>
+      <p class="testimonial-caption text-white/90">{caption}</p>
     </div>
   </button>
 
@@ -116,8 +116,154 @@ const { title, caption, videoSrc } = Astro.props;
 </script>
 
 <style>
+  /* Mobile (< 768px) - Diseño original completo */
   .testimonial-video-card {
     max-width: 340px;
+  }
+
+  .testimonial-preview-button {
+    min-height: 620px;
+  }
+
+  .testimonial-content {
+    padding: 1.5rem 1.5rem;
+    min-height: 620px;
+  }
+
+  .testimonial-play-svg {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .testimonial-play-icon {
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .testimonial-caption {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+  }
+
+  /* Tablets (768px - 1023px) - Reducción moderada */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .testimonial-video-card {
+      max-width: 240px;
+    }
+
+    .testimonial-preview-button {
+      min-height: 340px;
+    }
+
+    .testimonial-content {
+      padding: 0.875rem 1rem;
+      min-height: 340px;
+    }
+
+    .testimonial-play-svg {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .testimonial-play-icon {
+      margin-bottom: 0.625rem;
+    }
+
+    .testimonial-title {
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      margin-bottom: 0.3125rem;
+      font-weight: 700;
+    }
+
+    .testimonial-caption {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      font-weight: 700;
+    }
+  }
+
+  /* Notebooks pequeñas (1024px - 1279px) - Máxima reducción */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .testimonial-video-card {
+      max-width: 200px;
+    }
+
+    .testimonial-preview-button {
+      min-height: 280px;
+    }
+
+    .testimonial-content {
+      padding: 0.5rem 0.75rem;
+      min-height: 280px;
+    }
+
+    .testimonial-play-svg {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .testimonial-play-icon {
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-title {
+      font-size: 1rem;
+      line-height: 1.375rem;
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+    }
+
+    .testimonial-caption {
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
+  /* Desktop grande (≥ 1440px) - Vuelve al diseño completo */
+  @media (min-width: 1440px) {
+    .testimonial-video-card {
+      max-width: 340px;
+    }
+
+    .testimonial-preview-button {
+      min-height: 620px;
+    }
+
+    .testimonial-content {
+      padding: 1.5rem 1.5rem;
+      min-height: 620px;
+    }
+
+    .testimonial-play-svg {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    .testimonial-play-icon {
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-title {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .testimonial-caption {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      font-weight: 700;
+    }
   }
 
   .testimonial-video-card.is-player-active {
