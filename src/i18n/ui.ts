@@ -9,7 +9,7 @@ export const ui = {
   es: {
     'nav.inicio': 'Inicio',
     'nav.quienes': 'Quiénes Somos',
-    'nav.productos': 'Tecnologías',
+    'nav.productos': 'Productos y Tecnologías',
     'nav.beneficios': 'Beneficios',
     'nav.testimonios': 'Testimonios',
     'nav.contacto': 'Contacto',
@@ -19,7 +19,7 @@ export const ui = {
     'hero.subtitle':
       'Acompañamos tu producción con productos biológicos y soluciones innovadoras. Conocé más de nosotros.',
     'hero.cta': 'Solicitar Asesoramiento',
-    'hero.cta.secondary': 'Ver Tecnologías',
+    'hero.cta.secondary': 'Ver Productos y Tecnologías',
     'hero.slide1.alt': 'Campo de cultivo agrícola bajo un cielo despejado',
     'hero.slide2.alt': 'Primer plano de un sistema de riego por goteo en un campo',
     'hero.slide3.alt': 'Vista aérea de un campo agrícola moderno y tecnificado',
@@ -28,9 +28,9 @@ export const ui = {
     'about.title': 'El Futuro del Agro es\nBiointeligente',
     'about.subtitle': '¿Buscas optimizar tu producción agrícola con tecnología sustentable?',
     'about.description':
-      'Somos una empresa que se especializa en ofrecer productos para el agro basados en la sustentabilidad, medio ambiente y tecnología. Acompañamos a los agricultores a impulsar prácticas sustentables en el largo plazo. Estas contribuyen con el cuidado del medio ambiente y la optimización de los recursos de los cuales depende, satisfaciendo las necesidades básicas de alimentos, siendo económicamente viable y mejorando la calidad de vida del productor y la sociedad. En Aguafértil utilizamos las nuevas tecnologías, bio y nanopartículas aplicadas al agro. Nuestra gran paleta de productos se basa en: materia orgánica, biofertilizantes, orgánicos certificados, bioestimulantes foliares, microorganismos, funguicidas, fertilizantes minerales en nanopartículas y correctores de suelo.',
+      'Somos una empresa que se especializa en ofrecer productos para el agro basados en la sustentabilidad, medio ambiente y tecnología. Acompañamos a los agricultores a impulsar prácticas sustentables en el largo plazo. Estas contribuyen con el cuidado del medio ambiente y la optimización de los recursos de los cuales depende, satisfaciendo las necesidades básicas de alimentos, siendo económicamente viable y mejorando la calidad de vida del productor y la sociedad. En Aguafértil utilizamos las nuevas tecnologías, bio y nanopartículas aplicadas al agro. Nuestra gran paleta de productos se basa en: materia orgánica compostada, biofertilizantes, bioestimulantes foliares, nanopartículas correctoras de suelo, microorganismos benéficos, biocontroladores y todo para el agro.',
     'about.final_title': '"Damos vida a tu suelo"',
-    'products.title': 'Nuestras Tecnologías',
+    'products.title': 'Nuestros Productos y Tecnologías',
     'products.subtitle': 'Distribuidor Oficial',
     'products.image_alt': 'Imagen de tecnología agrícola',
     'products.technology_label': 'Tecnología',
@@ -41,7 +41,7 @@ export const ui = {
     'products.cta_title': '¡Juntos hacemos crecer la tierra con innovación!',
     'products.cta_description':
       'Descubre todas las marcas que distribuimos y lleva tu campo al siguiente nivel',
-    'products.cta_catalog_button': 'Solicitar Catálogo',
+    'products.cta_catalog_button': 'VER PRODUCTOS Y SOLICITAR CATÁLOGO',
 
     'benefits.title': 'Beneficios de Trabajar con Nosotros',
     'benefits.1.title': 'Asesoramiento Profesional',
@@ -132,7 +132,7 @@ export const ui = {
   en: {
     'nav.inicio': 'Home',
     'nav.quienes': 'About Us',
-    'nav.productos': 'Technologies',
+    'nav.productos': 'Products and Technologies',
     'nav.beneficios': 'Benefits',
     'nav.testimonios': 'Testimonials',
     'nav.contacto': 'Contact',
@@ -142,7 +142,7 @@ export const ui = {
     'hero.subtitle':
       'We support your production with biological products and innovative solutions. Learn more about us.',
     'hero.cta': 'Request Consultation',
-    'hero.cta.secondary': 'View Technologies',
+    'hero.cta.secondary': 'View Products and Technologies',
     'hero.slide1.alt': 'Agricultural crop field under a clear sky',
     'hero.slide2.alt': 'Close-up of a drip irrigation system in a field',
     'hero.slide3.alt': 'Aerial view of a modern and technified agricultural field',
@@ -155,7 +155,7 @@ export const ui = {
       'We are a company that specializes in offering agricultural products based on sustainability, the environment, and technology. We support farmers in promoting long-term sustainable practices. These contribute to caring for the environment and optimizing the resources on which it depends, satisfying basic food needs, being economically viable, and improving the quality of life for the producer and society. At Aguafértil, we use new technologies, bio and nanoparticles applied to agriculture. Our wide range of products is based on: organic matter, biofertilizers, certified organics, foliar biostimulants, microorganisms, fungicides, mineral fertilizers in nanoparticles, and soil correctors.',
 
     'about.final_title': '"Give life to your soil"',
-    'products.title': 'Official Distributor',
+    'products.title': 'Our Products and Technologies',
     'products.subtitle': 'Distributor Official',
     'products.image_alt': 'Agricultural technology image',
     'products.technology_label': 'Technology',
@@ -166,7 +166,7 @@ export const ui = {
     'products.cta_title': 'Together we make the earth grow with innovation!',
     'products.cta_description':
       'Discover all the brands we distribute and take your field to the next level',
-    'products.cta_catalog_button': 'Request Catalog',
+    'products.cta_catalog_button': 'VIEW PRODUCTS AND REQUEST CATALOG',
 
     'benefits.title': 'Benefits of Working with Us',
     'benefits.1.title': 'Professional Consulting',

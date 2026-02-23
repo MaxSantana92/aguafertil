@@ -34,7 +34,7 @@ const translatePath = useTranslatedPath(lang);
         </svg>
       </button>
 
-      <div class="hidden lg:flex items-center space-x-8">
+      <div class="desktop-nav-menu hidden lg:flex items-center space-x-4 2xl:space-x-8">
         <a href={translatePath('#inicio')} class="nav-link desktop-nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.inicio')}</a>
         <a href={translatePath('#quienes-somos')} class="nav-link desktop-nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.quienes')}</a>
         <a href={translatePath('#tecnologias')} class="nav-link desktop-nav-link text-gray-700 hover:text-emerald-600 transition-colors font-medium">{t('nav.productos')}</a>
@@ -73,7 +73,7 @@ const translatePath = useTranslatedPath(lang);
         />
       </div>
       
-      <div class="flex items-center space-x-3 pt-2">
+      <div class="flex items-center pt-2">
         <a href={translatePath('/', 'es')} class={`mobile-lang-item ${lang === 'es' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>ES</a>
         <a href={translatePath('/', 'en')} class={`mobile-lang-item ${lang === 'en' ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'text-gray-600'}`}>EN</a>
       </div>
