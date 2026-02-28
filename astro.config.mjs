@@ -5,13 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://maxsantana92.github.io',
-  base: '/aguafertil',
+  site: 'https://aguafertil.com.ar',
+  base: '/',
   i18n: {
     defaultLocale: 'es',
     locales: ['es', 'en'],
     routing: {
-        prefixDefaultLocale: true // Recomendado para GitHub Pages
+        prefixDefaultLocale: true
     }
   },
   vite: {
