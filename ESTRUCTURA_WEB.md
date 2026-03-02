@@ -1,8 +1,8 @@
-# Agua Fertil - Documentación de la Web Corporativa
+# Aguafertil - Documentación de la Web Corporativa
 
 ## Resumen del Proyecto
 
-Web corporativa moderna para Agua Fertil, empresa especializada en nutrición vegetal sustentable en San Juan y La Rioja, Argentina. La web está construida con Astro y Tailwind CSS, incluye soporte multiidioma (español e inglés), y sigue el modelo AIDA para optimizar la conversión.
+Web corporativa moderna para Aguafertil, empresa especializada en nutrición vegetal sustentable en San Juan y La Rioja, Argentina. La web está construida con Astro y Tailwind CSS, incluye soporte multiidioma (español e inglés), y sigue el modelo AIDA para optimizar la conversión.
 
 ## Tecnologías Utilizadas
 
@@ -14,16 +14,19 @@ Web corporativa moderna para Agua Fertil, empresa especializada en nutrición ve
 ## Paleta de Colores
 
 ### Colores Principales
+
 - **Verde Corporativo**: `#1B6B4E` / `#2D7A5E` (from-emerald-600 to-emerald-700)
 - **Verde Lima**: `#A4D233` / `#8BC34A` (lime-500, green-600)
 - **Azul Turquesa**: `#00B4D8` / `#0891B2` (cyan-500, blue-600)
 
 ### Colores Secundarios
+
 - **Naranja/Ámbar**: Para iconos y acentos (amber-500, orange-600)
 - **Gris Oscuro**: `#1F2937` (Para textos)
 - **Blanco**: `#FFFFFF`
 
 ### Colores de Fondo
+
 - Gradientes suaves con `from-gray-50 to-white`
 - Gradientes de marca con `from-emerald-50 to-lime-50`
 
@@ -66,6 +69,7 @@ src/
 ## Secciones de la Web (Modelo AIDA)
 
 ### 1. Hero Section (Atención)
+
 - **Componente**: `Hero.astro`
 - **Características**:
   - Slider automático con 4 imágenes de cultivos (Pexels)
@@ -76,6 +80,7 @@ src/
   - Animaciones de fade-in y slide-up
 
 ### 2. Problem/Solution (Interés)
+
 - **Componente**: `ProblemSolution.astro`
 - **Características**:
   - Descripción del problema y solución
@@ -85,6 +90,7 @@ src/
   - Animaciones de fadeInUp escalonadas
 
 **Productos Incluidos**:
+
 1. Materia Orgánica
 2. Biofertilizantes
 3. Bioestimulantes Foliares
@@ -93,6 +99,7 @@ src/
 6. Correctores de Suelo
 
 ### 3. Benefits (Deseo)
+
 - **Componente**: `Benefits.astro`
 - **Características**:
   - 4 beneficios clave con iconos SVG
@@ -101,6 +108,7 @@ src/
   - Gradientes de colores distintivos por beneficio
 
 ### 4. Social Proof (Confianza)
+
 - **Componente**: `SocialProof.astro`
 - **Características**:
   - 3 testimonios reales con ratings de 5 estrellas
@@ -110,15 +118,17 @@ src/
   - Sistema de animaciones escalonadas
 
 ### 5. Social Media (Engagement)
+
 - **Componente**: `SocialMedia.astro`
 - **Características**:
   - 3 tarjetas de redes sociales (Instagram, YouTube, Spotify)
   - Gradientes específicos por plataforma
   - Iconos SVG completos
-  - Enlaces externos con target="_blank"
+  - Enlaces externos con target="\_blank"
   - Animación bounceIn
 
 ### 6. FAQ (Objeciones)
+
 - **Componente**: `FAQ.astro`
 - **Características**:
   - 6 preguntas frecuentes
@@ -128,6 +138,7 @@ src/
   - Iconos rotativos
 
 **Preguntas Incluidas**:
+
 1. ¿Qué productos ofrecen?
 2. ¿Ofrecen asesoramiento técnico?
 3. ¿En qué zonas trabajan?
@@ -136,6 +147,7 @@ src/
 6. ¿Cómo puedo hacer un pedido?
 
 ### 7. Contact Form (Acción)
+
 - **Componente**: `Contact.astro`
 - **Características**:
   - Formulario con validación HTML5
@@ -146,6 +158,7 @@ src/
   - Diseño responsive en 2 columnas
 
 ### 8. Location (Ubicación)
+
 - **Componente**: `Location.astro`
 - **Características**:
   - Google Maps embebido (San Juan, Argentina)
@@ -154,6 +167,7 @@ src/
   - Sombras y hover effects
 
 ### 9. Navigation
+
 - **Componente**: `Navigation.astro`
 - **Características**:
   - Barra fija (sticky)
@@ -164,6 +178,7 @@ src/
   - Efecto de sombra al hacer scroll
 
 ### 10. Footer
+
 - **Componente**: `Footer.astro`
 - **Características**:
   - 3 columnas: Sobre Nosotros, Contacto, Redes Sociales
@@ -175,6 +190,7 @@ src/
 ## Funcionalidades Interactivas
 
 ### Animaciones
+
 - **Fade In**: Aparición gradual de elementos
 - **Slide Up**: Entrada desde abajo
 - **Bounce In**: Entrada con rebote
@@ -182,6 +198,7 @@ src/
 - **Counters**: Contadores animados en Benefits
 
 ### JavaScript Interactivo
+
 1. **Slider de Hero**: Auto-play, navegación manual, dots
 2. **FAQ Accordion**: Expansión/colapso de respuestas
 3. **Mobile Menu**: Menú hamburguesa responsive
@@ -193,20 +210,25 @@ src/
 ## Sistema i18n (Internacionalización)
 
 ### Estructura
+
 - **Archivo de traducciones**: `src/i18n/ui.ts`
 - **Utilidades**: `src/i18n/utils.ts`
 - **Idiomas**: Español (ES) - por defecto, Inglés (EN)
 
 ### Uso
+
 ```typescript
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
 // En el template
-{t('hero.title')}
+{
+  t('hero.title')
+}
 ```
 
 ### Rutas
+
 - `/` → Redirect a `/es`
 - `/es` → Versión en español
 - `/en` → Versión en inglés
@@ -214,12 +236,14 @@ const t = useTranslations(lang);
 ## Responsive Design
 
 ### Breakpoints (Tailwind)
+
 - **sm**: 640px
 - **md**: 768px
 - **lg**: 1024px
 - **xl**: 1280px
 
 ### Adaptaciones Móviles
+
 - Hero: Títulos más pequeños, stack de botones
 - Navigation: Menú hamburguesa
 - Products: Grid de 1 columna
@@ -229,6 +253,7 @@ const t = useTranslations(lang);
 ## Optimizaciones
 
 ### Performance
+
 - Lazy loading de imágenes
 - Preconnect a Google Fonts
 - Smooth scroll con CSS
@@ -236,6 +261,7 @@ const t = useTranslations(lang);
 - Build optimizado con Vite
 
 ### SEO
+
 - Meta descriptions por idioma
 - Títulos únicos por página
 - HTML semántico
@@ -245,6 +271,7 @@ const t = useTranslations(lang);
 ## Imágenes de Stock (Pexels)
 
 ### Hero Slider
+
 1. https://images.pexels.com/photos/2132250/pexels-photo-2132250.jpeg (Campo verde)
 2. https://images.pexels.com/photos/1382102/pexels-photo-1382102.jpeg (Agricultura)
 3. https://images.pexels.com/photos/2255801/pexels-photo-2255801.jpeg (Cultivos)
@@ -253,6 +280,7 @@ const t = useTranslations(lang);
 ## Próximos Pasos Sugeridos
 
 ### Mejoras Técnicas
+
 1. Conectar formulario de contacto a backend o servicio de email
 2. Agregar sistema de testimonios dinámico (base de datos)
 3. Implementar blog/noticias
@@ -260,6 +288,7 @@ const t = useTranslations(lang);
 5. Sistema de cotizaciones online
 
 ### Mejoras de Contenido
+
 1. Reemplazar textos placeholder con contenido real
 2. Agregar imágenes propias de productos y equipo
 3. Incluir casos de éxito reales
@@ -267,6 +296,7 @@ const t = useTranslations(lang);
 5. Infografías sobre procesos
 
 ### Analytics & Marketing
+
 1. Integrar Google Analytics 4
 2. Implementar Facebook Pixel
 3. Agregar chatbot/WhatsApp widget
@@ -291,7 +321,7 @@ npm run astro check
 
 ## Contacto del Proyecto
 
-- **Cliente**: Agua Fertil
+- **Cliente**: Aguafertil
 - **Ubicación**: San Juan y La Rioja, Argentina
 - **Tecnología distribuida**: Simbios
 - **Enfoque**: Nutrición vegetal sustentable
