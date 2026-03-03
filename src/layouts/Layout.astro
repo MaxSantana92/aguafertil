@@ -10,6 +10,27 @@ import Button from '../components/Button.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const brandName = 'Aguafertil';
+const canonicalUrl = Astro.url.href;
+const siteOrigin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : Astro.url.origin;
+const organizationSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Organization',
+	name: brandName,
+	url: siteOrigin,
+	logo: `${siteOrigin}${icon192.src}`
+};
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: brandName,
+	url: siteOrigin,
+	inLanguage: ['es', 'en'],
+	publisher: {
+		'@type': 'Organization',
+		name: brandName
+	}
+};
 
 interface Props {
 	title?: string;
@@ -30,12 +51,31 @@ const { title = "Aguafertil | Nutrición Vegetal Biológica", description = "Lí
 		<link rel="icon" sizes="192x192" href={icon192.src} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
+		<meta name="application-name" content={brandName} />
+		<meta name="apple-mobile-web-app-title" content={brandName} />
+		<meta name="author" content={brandName} />
+		<link rel="canonical" href={canonicalUrl} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={brandName} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:locale" content={lang === 'es' ? 'es_AR' : 'en_US'} />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:site" content={brandName} />
+		<meta name="twitter:creator" content={brandName} />
 
 		<title>{title}</title>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
+		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
 	</head>
 	<body class="antialiased">
 		<Navigation />
