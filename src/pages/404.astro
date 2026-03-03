@@ -1,0 +1,58 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirigiendo...</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: Montserrat, system-ui, -apple-system, sans-serif;
+        background: #f9fafb;
+        color: #1f2937;
+      }
+      .card {
+        text-align: center;
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+      p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <p>Redirigiendo al inicio...</p>
+    </div>
+
+    <script is:inline define:vars={{ base }}>
+      (() => {
+        const { pathname } = window.location;
+        const language = (navigator.language || '').toLowerCase();
+
+        let locale = 'es';
+        if (pathname.startsWith('/en/') || pathname === '/en') {
+          locale = 'en';
+        } else if (pathname.startsWith('/es/') || pathname === '/es') {
+          locale = 'es';
+        } else if (language.startsWith('en')) {
+          locale = 'en';
+        }
+
+        const target = `${base}/${locale}/`;
+        window.location.replace(target.replace(/\/{2,}/g, '/'));
+      })();
+    </script>
+  </body>
+</html>
