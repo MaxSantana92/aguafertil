@@ -2,7 +2,7 @@
 
 @theme {
   --color-verde-agua: #8dc63f;
-  --color-azul-brillante: #40b6d9;
+  --color-azul-brillante: #00abc9;
   --color-azul-oscuro: #2b5882;
   --color-fondo: #f9f9f9;
   --color-texto-oscuro: #4d4d4d;
@@ -13,7 +13,7 @@
   --theme-primary: #8dc63f;
   --theme-primary-dark: #7ab135;
   --theme-primary-light: #9fd754;
-  --theme-accent: #40b6d9;
+  --theme-accent: #00abc9;
   --theme-gradient-from: #8dc63f;
   --theme-gradient-to: #7ab135;
   --theme-shadow: rgba(141, 198, 63, 0.5);
