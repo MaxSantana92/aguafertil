@@ -1,6 +1,5 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import { Image } from 'astro:assets';
 import isoLogo from '../assets/iso_logo.png';
 
 const lang = getLangFromUrl(Astro.url);
@@ -11,14 +10,14 @@ const t = useTranslations(lang);
 	<div class="container mx-auto px-4">
 		<div class="text-center max-w-4xl mx-auto">
 			<div class="mb-6 flex justify-center">
-				<Image 
-					src={isoLogo}
+				<img
+					src={isoLogo.src}
 					alt="Aguafertil - Sustentabilidad y Nutrición"
-					width={256}
-					height={256}
-					format="png"
+					width="1024"
+					height="1024"
 					class="w-24 h-24 md:w-32 md:h-32 animate-pulse-slow"
 					loading="eager"
+					decoding="async"
 				/>
 			</div>
 			<div class="inline-flex items-center bg-emerald-100 px-4 py-2 rounded-full text-emerald-700 font-medium mb-4">

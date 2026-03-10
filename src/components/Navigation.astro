@@ -2,7 +2,6 @@
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 import Button from './Button.astro';
 
-import { Image } from 'astro:assets';
 import isoLogo from '../assets/iso_logo.png';
 
 const lang = getLangFromUrl(Astro.url);
@@ -14,14 +13,14 @@ const translatePath = useTranslatedPath(lang);
   <div class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <a href={translatePath('/')} class="flex items-center space-x-2">
-        <Image 
-          src={isoLogo} 
-          alt="Aguafertil Logo" 
-          width={128} 
-          height={128} 
-          format="png"
-          class="w-18 h-18 object-contain"
+        <img
+          src={isoLogo.src}
+          alt="Aguafertil Logo"
+          width="1024"
+          height="1024"
+          class="w-12 h-12 object-contain"
           loading="eager"
+          decoding="async"
         />
         <div class="text-center">
           <span class="nav-brand-title block text-4xl font-bold text-[#00abc9]"><span class="nav-brand-agua">agua</span><span class="nav-brand-highlight text-[#8DC63F]">fértil</span></span>
