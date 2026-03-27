@@ -1,8 +1,13 @@
 {
   "name": "@example/basics",
+  "description": "Sitio web corporativo Aguafertil — desarrollado por AgriTech Soluciones (https://agritech.ar).",
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "AgriTech Soluciones",
+    "url": "https://agritech.ar"
+  },
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",
